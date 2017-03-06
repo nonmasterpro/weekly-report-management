@@ -9,7 +9,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       
         <!-- Styles -->
         <style>
             html, body {
@@ -81,7 +84,16 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                    <br>
+                    <i class="fa fa-car"></i>
+                    <i class="fa fa-car" style="font-size:48px;"></i>
+                    <i class="fa fa-car" style="font-size:60px;color:red;"></i>
+                    <div> <button type="button" class="btn btn-primary">Default</button>
+                    <div> <button type="button" class="btn btn-success">Default</button>
+                    <p>Click me away!</p>
+                    <p>Click me too!</p>
+                     </div>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -91,5 +103,18 @@
                 </div>
             </div>
         </div>
+
+
+
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+
+        
+
     </body>
 </html>
