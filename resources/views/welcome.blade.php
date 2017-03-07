@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-       
+        <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -125,9 +126,9 @@
                         Test Bootstrap,Jquery,Fontawesome.
                     </h5>
                     <hr>
-                    
+
                     <div>
-                    <h6>Posted by <strong>Teerapong</strong> 
+                    <h6>Posted by <strong>Teerapong</strong>
                     <i id="iconBlog" class="fa fa-heart" aria-hidden="true"></i>
                     <i id="iconBlog" class="fa fa-comment-o" aria-hidden="true"></i>
                     <i id="iconBlog" class="fa fa-share" aria-hidden="true"></i>
@@ -135,7 +136,7 @@
                     </div>
 
                     </div>
-            </div>   
+            </div>
         </div>
 
 <script>
@@ -146,7 +147,7 @@ $(document).ready(function(){
 });
 </script>
 
-        
+
 
     </body>
 </html>
