@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-       
+        <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -65,6 +66,15 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #img1{
+                width: 300px;
+                height: 200px;
+            }
+            #iconBlog{
+                float:right;
+                padding-left:5px;
+            }
         </style>
     </head>
     <body>
@@ -89,8 +99,8 @@
                     <i class="fa fa-car"></i>
                     <i class="fa fa-car" style="font-size:48px;"></i>
                     <i class="fa fa-car" style="font-size:60px;color:red;"></i>
-                    <div> <button type="button" class="btn btn-primary">Default</button>
-                    <div> <button type="button" class="btn btn-success">Default</button>
+                    <div> <button type="button" class="btn btn-primary">Primary</button>
+                    <div> <button type="button" class="btn btn-success">Success</button>
                     <p>Click me away!</p>
                     <p>Click me too!</p>
                      </div>
@@ -104,7 +114,30 @@
             </div>
         </div>
 
+        <div>
+            <div class="panel panel-default">
+                <img id="img1" src="http://www.magazinehive.com/wp-content/uploads/2013/01/nature-view.jpg" alt="Smiley face" width="42" height="42">
+                <div class="panel-body">
+                    <h6>1 day ago</h6>
+                    <h4><strong>A Basic Panel</strong></h4>
+                    <h5>
+                        Hello, My name is Teerapong Boonmak. <br>
+                        I come from Phayao. <br>
+                        Test Bootstrap,Jquery,Fontawesome.
+                    </h5>
+                    <hr>
 
+                    <div>
+                    <h6>Posted by <strong>Teerapong</strong>
+                    <i id="iconBlog" class="fa fa-heart" aria-hidden="true"></i>
+                    <i id="iconBlog" class="fa fa-comment-o" aria-hidden="true"></i>
+                    <i id="iconBlog" class="fa fa-share" aria-hidden="true"></i>
+                    </h6>
+                    </div>
+
+                    </div>
+            </div>
+        </div>
 
 <script>
 $(document).ready(function(){
@@ -114,7 +147,7 @@ $(document).ready(function(){
 });
 </script>
 
-        
+
 
     </body>
 </html>
