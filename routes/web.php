@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layout/app');
+    return view('layouts/app');
 });
 
 Route::get('/login', function () {
