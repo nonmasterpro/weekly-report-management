@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use Auth;
 class QuestionController extends Controller
 {
     /**
@@ -29,6 +30,7 @@ class QuestionController extends Controller
     public function create()
     {
         //
+        return view('question.create');
     }
 
     /**
@@ -39,7 +41,30 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validator
+        // $this->validate($request,[
+        //   'title'=>'require',
+        //   'discription' => 'require',
+        //   'Qcoin' => 'require',
+        // ]);
+
+        $titles = $request -> title;
+        $discriptions = $request -> discription;
+        $Qcoins = $request -> Qcoin;
+        $UserQIds = $request -> UserQId;
+        $id = Auth::id();
+        //create
+        // return ($id);
+        $questions = new question;
+
+        $questions->title = $titles;
+        $questions->discription = $discriptions;
+        $questions->Qcoin = $Qcoins;
+        $questions->UserQId = $id;
+
+        $questions->save();
+
+        return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
     }
 
     /**
@@ -61,7 +86,9 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
+        $questions = Question::findOrFail($id);
         //
+        return view('question.edit',compact('question'));
     }
 
     /**
@@ -73,7 +100,20 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //  $titles = $request -> title;
+          $discriptions = $request -> discription;
+          $Qcoins = $request -> Qcoin;
+          $UserQIds = $request -> UserQId;
+          $id = Auth::id();
+
+          $questions = Question::findOrFail($id);
+
+          $questions->title = $titles;
+          $questions->discription = $discriptions;
+          $questions->Qcoin = $Qcoins;
+          $questions->UserQId = $id;
+          $questions->save();
+          return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
     }
 
     /**
@@ -85,5 +125,9 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         //
+        $questions = Question::findOrFail($id);
+        $questions->delete();
+        return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
+
     }
 }
