@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="">
+  <button id="askButton" onclick="window.location.href='question/create'"
+  class="btn btn-success" type="button" name="button"> Ask Question </button>
+
+  <a href="" class="btn btn-primary">My Question</a>
+
+</div>
+
 <div id="listQ" class="row">
   <h3>Question
-  <button id="askButton" onclick="window.location.href='question/create'" class="btn btn-success" type="button" name="button"> Ask Question</button>
 </h3>
 <table class="table table-striped">
 <tr>
@@ -15,7 +22,7 @@
 
 @foreach($questions as $question)
 <tr>
-  <td>{{$question->title}}</td>
+  <td><a href="{{route('question.show',$question->id)}}">{{$question->title}}</a></td>
   <td>{{$question->discription}}</td>
   <td>{{$question->Qcoin}}</td>
   <!-- <td>
@@ -39,6 +46,11 @@
   #askButton{
     float: right;
     margin-right: 50px;
+    margin-bottom: 10px;
+  }
+  #myButton{
+    float: right;
+    margin-right: 10px;
     margin-bottom: 10px;
   }
 </style>

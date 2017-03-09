@@ -16,10 +16,18 @@ class QuestionController extends Controller
     {
         //show Database
 
-        $questions = Question::all();
+        $question = Question::all();
 
         //dd($questions);
-        return view('question.index',['questions' => $questions]);
+        return view('question.index',['questions' => $question]);
+    }
+
+    public function indexid($id)
+    {
+      $question = Question::all();
+
+      //dd($questions);
+      return view('question.indexid',['questions' => $question]);
     }
 
     /**
@@ -75,7 +83,8 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+      return view('question.show', ['questions' => question::findOrFail($id)]);
+
     }
 
     /**
@@ -103,7 +112,7 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
       // return ($id);
-         $titles = $request -> title;
+          $titles = $request -> title;
           $discriptions = $request -> discription;
           $Qcoins = $request -> Qcoin;
           $UserQIds = $request -> UserQId;

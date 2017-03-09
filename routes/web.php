@@ -30,3 +30,5 @@ Route::group(['middleware' => ['web']], function () {
 
      Route::resource('layouts', 'UserCoinController') ;
   //  Route::patch('question','QuestionController@update')
+  Route::get('question/{id}', 'QuestionController@show');
+  Route::get('question/u', 'QuestionController@indexid');
