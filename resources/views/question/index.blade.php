@@ -4,8 +4,8 @@
 <div class="">
   <button id="askButton" onclick="window.location.href='question/create'"
   class="btn btn-success" type="button" name="button"> Ask Question </button>
-  <button id="myButton" onclick="window.location.href='question/show'"
-  class="btn btn-primary" type="button" name="button"> My Question </button>
+
+  <a href="" class="btn btn-primary">My Question</a>
 
 </div>
 

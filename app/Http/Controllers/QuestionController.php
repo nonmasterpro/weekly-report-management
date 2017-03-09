@@ -22,6 +22,14 @@ class QuestionController extends Controller
         return view('question.index',['questions' => $question]);
     }
 
+    public function indexid($id)
+    {
+      $question = Question::all();
+
+      //dd($questions);
+      return view('question.indexid',['questions' => $question]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -75,7 +83,6 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-      
       return view('question.show', ['questions' => question::findOrFail($id)]);
 
     }
