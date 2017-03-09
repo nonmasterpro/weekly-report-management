@@ -27,4 +27,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('question', 'QuestionController') ;
         // Uses Auth Middleware
    });
+
+     Route::resource('layouts', 'UserCoinController') ;
   //  Route::patch('question','QuestionController@update')
