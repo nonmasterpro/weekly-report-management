@@ -8,15 +8,15 @@
                 <div class="panel-heading">Edit Question</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('question.update',$question->id)}}">
-
-
-
+                <form class = "" method = "post" action = "{{route('question.update',$question->id)}}">
+                  <input name="_method" type="hidden" value="PATCH">
+                  <div>
                   <input type= "text" class = "form-control" name="title" placeholder="your question" value = "{{$question->title}}"><br>
-
+</div><div>
                   <input type= "text" class = "form-control" name="Qcoin" placeholder="coin" value="{{$question->Qcoin}}"><br>
-                    <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
+                </div><div>  <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
                   <textarea rows="10" name = "discription" class = "form-control" placeholder="main" value = "{{$question->discription}}"></textarea>
+</div>
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>

@@ -23,7 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-//Route::group(['middleware' => ['web']], function () {
-    Route::resource('question', 'QuestionController') ;   
+Route::group(['middleware' => ['web']], function () {
+    Route::resource('question', 'QuestionController') ;
         // Uses Auth Middleware
-  //  });
+   });
+  //  Route::patch('question','QuestionController@update')

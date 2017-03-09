@@ -16,12 +16,12 @@
   <td>{{$question->discription}}</td>
   <td>{{$question->Qcoin}}</td>
   <td>
-<from class = "" action="{{route('question.destroy',$question->id)}}" method="post">
+<form class = "" action="{{route('question.destroy',$question->id)}}" method="post">
   <input type ="hidden" name="_method" value="delete">
-  <input type ="hidden" name="_token" value="{{csrf_token()}}">
+  <input type ="hidden" name="_token" value="{{ csrf_token() }}">
   <a href="{{route('question.edit',$question->id)}}">Edit</a>
-  <input type="submit" name="name" value="delete">
-</from>
+  <input type="submit" class = "btn btn-danger" onclick="return confirm('sour')" name="name" value="delete">
+</form>
   </td>
 </tr>
 @endforeach
