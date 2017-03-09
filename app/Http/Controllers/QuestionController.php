@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Question;
 use Auth;
@@ -86,9 +86,11 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        $questions = Question::findOrFail($id);
-        //
-        return view('question.edit',compact('question'));
+            $question = Question::findOrFail($id);
+
+
+
+        return view('question.edit', compact('question'));
     }
 
     /**
@@ -100,19 +102,21 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //  $titles = $request -> title;
+      // return ($id);
+         $titles = $request -> title;
           $discriptions = $request -> discription;
           $Qcoins = $request -> Qcoin;
           $UserQIds = $request -> UserQId;
-          $id = Auth::id();
+          // $idu = Auth::id();
 
-          $questions = Question::findOrFail($id);
+          $question = Question::findOrFail($id);
 
-          $questions->title = $titles;
-          $questions->discription = $discriptions;
-          $questions->Qcoin = $Qcoins;
-          $questions->UserQId = $id;
-          $questions->save();
+          $question->title = $titles;
+          $question->discription = $discriptions;
+          $question->Qcoin = $Qcoins;
+          // $question->UserQId = $idu;
+          $question->save();
+
           return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
     }
 
