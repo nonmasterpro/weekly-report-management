@@ -28,3 +28,4 @@ Route::group(['middleware' => ['web']], function () {
         // Uses Auth Middleware
    });
   //  Route::patch('question','QuestionController@update')
+  Route::get('question/{id}', 'QuestionController@show');
