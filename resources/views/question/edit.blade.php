@@ -19,7 +19,8 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </div><div>
                   <input type= "text" class = "form-control" name="Qcoin" placeholder="coin" value="{{$question->Qcoin}}"><br>
                 </div><div>  <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
-                  <input rows="10" name = "discription" class = "form-control" placeholder="main" value = "{{$question->discription}}">
+                  <textarea rows="10" name = "discription" class = "form-control" placeholder="main" value = "{{$question->discription}}">
+{{$question->discription}}</textarea>
 </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
