@@ -11,16 +11,16 @@ class="btn btn-info" type="button" name="button"> Back </button>
 <table class="table table-striped">
 <tr>
 <th>Title</th>
-<th>Discription</th>
 <th>Price</th>
+<th>Post at</th>
 <th>Action</th>
 </tr>
 
 @foreach($questions as $question)
 <tr>
   <td><a href="{{route('question.show',$question->id)}}">{{$question->title}}</a></td>
-  <td>{{$question->discription}}</td>
   <td>{{$question->Qcoin}}</td>
+  <td>{{$question->created_at}}</td>
   <td>
 <form class = "" action="{{route('question.destroy',$question->id)}}" method="post">
   <input type ="hidden" name="_method" value="delete">

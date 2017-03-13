@@ -136,6 +136,8 @@ class QuestionController extends Controller
           // $question->UserQId = $idu;
           $question->save();
 
+          // return view('question.indexid');
+
           return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
     }
 
