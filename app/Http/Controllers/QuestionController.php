@@ -14,20 +14,30 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //show Database
 
         $question = Question::all();
 
-        //dd($questions);
         return view('question.index',['questions' => $question]);
     }
 
-    public function indexid($id)
-    {
-      $question = Question::all();
 
-      //dd($questions);
-      return view('question.indexid',['questions' => $question]);
+
+    public function indexid()
+    {
+
+        $ids = Auth::id();
+        $ids = explode(",", $ids);
+        $question = array();
+        foreach($ids as $id) {
+        $q = question::where('UserQId', $id)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+        return view('question.indexid', ['questions' => $q]);
+
+        // return view('question.indexid', array('question' => $id ););
+
     }
 
     /**

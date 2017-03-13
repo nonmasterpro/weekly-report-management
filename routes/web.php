@@ -18,17 +18,19 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+// Route::get('question/{UserQId}', 'QuestionController@indexid');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::resource('question', 'QuestionController') ;
+  Route::get('question/user', 'QuestionController@indexid');
+  Route::resource('question', 'QuestionController') ;
         // Uses Auth Middleware
    });
 
-     Route::resource('layouts', 'UserCoinController') ;
+
+    //  Route::resource('layouts', 'UserCoinController') ;
   //  Route::patch('question','QuestionController@update')
-  Route::get('question/{id}', 'QuestionController@show');
-  Route::get('question/u', 'QuestionController@indexid');
+  // Route::get('question/{id}', 'QuestionController@show');
