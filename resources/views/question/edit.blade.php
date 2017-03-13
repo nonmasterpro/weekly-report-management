@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+<button id="myButton" onclick="window.location.href='/question/user'"
+class="btn btn-info" type="button" name="button"> Back </button>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -24,3 +28,11 @@
     </div>
 </div>
 @endsection
+<style media="screen">
+
+#myButton{
+  float: right;
+  margin-right: 50px;
+  margin-bottom: 10px;
+}
+</style>
