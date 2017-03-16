@@ -5,39 +5,6 @@
 <button id="myButton" onclick="window.location.href='/question'"
 class="btn btn-info" type="button" name="button"> Back </button>
 
-<div id="listQ" class="row">
-  <h3>Question
-    <button id="reButton" onclick="window.location.href='answer/{{$questions->id}}'"
-    class="btn btn-success" type="button" name="button"> Reply </button>
-</h3>
-
-<div id="questionbox"class="">
-  <div id="titleQ" class="">
-    <h3>{{$questions->title}}</h3>
-
-  </div><hr id="hr">
-
-  <div id="desQ" class="">
-    {{$questions->discription}}
-
-  </div>
-
-  </div>
-
-@foreach($answers as $answer)
-<br>
-  <div id="answerbox"class="">
-    <div id="titleQ" class="">
-      <br/>
-      <h3>Answer{{$answer->id}}</h3>
-      <h4 id="answer">{{$answer->answer}}</h4>
-      <h4 id="nameU">{{$answer->UserId}}</h4>
-    </div>
-  </div>
-@endforeach
-
-<br>
-
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -45,7 +12,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <div class="panel-heading">Answer</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('question.store')}}">
+                <form class = "" method = "POST" action = "{{route('question.storeAns, 1')}}">
 
                   <textarea rows="10" name = "discription" class = "form-control" placeholder="Your answer"></textarea>
                   <br>
@@ -62,7 +29,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 @stop
 
-<style media="screen">
+<style >
 
 #ansButton{
   float: right;

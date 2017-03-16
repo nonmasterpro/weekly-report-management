@@ -138,13 +138,17 @@ public function CalCoin(){
 
     }
 
+    public function createAns($id)
+    {
+        return view('question.answer', ['aaaa' => $id]);
+    }
+
     public function storeAns(Request $request,$id)
     {
-
       ///////
             $idu = Auth::id();
 
-            $answerss = $request -> answer;
+          return  $answerss = $request -> answer;
 
             $ans = new answer;
 
