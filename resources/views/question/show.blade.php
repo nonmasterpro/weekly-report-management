@@ -21,6 +21,19 @@ class="btn btn-info" type="button" name="button"> Back </button>
   </div>
 
   </div>
+
+@foreach($answers as $answer)
+<br>
+  <div id="answerbox"class="">
+    <div id="titleQ" class="">
+      <br/>
+      <h3>Answer{{$answer->id}}</h3>
+      <h4 id="answer">{{$answer->answer}}</h4>
+    </div>
+  </div>
+@endforeach
+
+
 </div>
 
 
@@ -56,6 +69,16 @@ class="btn btn-info" type="button" name="button"> Back </button>
   margin:0 auto;
   background-color: gray;
 }
+
+#answerbox{
+  border: 1px solid;
+  width: 1000px;
+  height: 280px;
+  margin:0 auto;
+  background-color: #B5B5B5;
+}
+
+
 #myButton{
   float: right;
   margin-right: 50px;
