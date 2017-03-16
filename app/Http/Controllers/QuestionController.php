@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Question;
+use App\Answer;
 use Auth;
 class QuestionController extends Controller
 {
@@ -93,7 +94,26 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-      return view('question.show', ['questions' => question::findOrFail($id)]);
+
+      $ids = $id;
+      $ids = explode(",", $ids);
+      foreach($ids as $i) {
+      $q = answer::where('QId', $i)->get();
+          // if(!is_null($q['questions'])) {
+              // $question = array_merge($question, $q['questions']->toArray());
+          // }
+      }
+
+      return view('question.show', ['questions' => question::findOrFail($id)],
+                                   ['answers' => $q]);
+
+    }
+
+    public function storeAns($id)
+    {
+
+
+      return view('question.show', [  ]);
 
     }
 
