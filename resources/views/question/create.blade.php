@@ -16,11 +16,11 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 
 
-                  <input type= "text" class = "form-control" name="title" placeholder="your question"><br>
+                  <input type= "text" class = "form-control" name="title" placeholder="Your Question"><br>
 
-                  <input type= "text" class = "form-control" name="Qcoin" placeholder="coin"><br>
+                  <input type= "text" class = "form-control" name="Qcoin" placeholder="Coin"><br>
                     <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
-                  <textarea rows="10" name = "discription" class = "form-control" placeholder="main"></textarea>
+                  <textarea rows="10" name = "discription" class = "form-control" placeholder="Description"></textarea>
                 <button type="submit" class="btn btn-primary">Add</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>

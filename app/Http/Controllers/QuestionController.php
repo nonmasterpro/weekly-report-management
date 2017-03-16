@@ -37,8 +37,6 @@ class QuestionController extends Controller
         }
         return view('question.indexid', ['questions' => $q]);
 
-        // return view('question.indexid', array('question' => $id ););
-
     }
 
     /**
@@ -74,6 +72,7 @@ class QuestionController extends Controller
         $id = Auth::id();
         //create
         // return ($id);
+
         $questions = new question;
 
         $questions->title = $titles;
@@ -94,26 +93,52 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-
+      $u = Auth::user();
       $ids = $id;
       $ids = explode(",", $ids);
+
       foreach($ids as $i) {
       $q = answer::where('QId', $i)->get();
-          // if(!is_null($q['questions'])) {
-              // $question = array_merge($question, $q['questions']->toArray());
-          // }
       }
+
+      // ///////
+      //       $idu = Auth::id();
+      //
+      //       $answers = $request -> answer;
+      //
+      //       $ans = new answer;
+      //
+      //       $ans->answer = $answers;
+      //       $ans->UserId = $idu;
+      //       $ans->QId = $id;
+      //
+      //       $ans->save();
+      // ///////
+
 
       return view('question.show', ['questions' => question::findOrFail($id)],
                                    ['answers' => $q]);
 
     }
 
-    public function storeAns($id)
+    public function storeAns(Request $request,$id)
     {
 
+      ///////
+            $idu = Auth::id();
 
-      return view('question.show', [  ]);
+            $answerss = $request -> answer;
+
+            $ans = new answer;
+
+            $ans->answer = $answerss;
+            $ans->UserId = $idu;
+            $ans->QId = $id;
+
+            $ans->save();
+      ///////
+
+      return redirect()->route('question.show')->with('alert-success','Data Hasbeen Saved');
 
     }
 

@@ -26,11 +26,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['web']], function () {
   Route::get('question/user', 'QuestionController@indexid');
+  Route::post('question/{question}', 'QuestionController@storeAns');
   Route::resource('question', 'QuestionController') ;
         // Uses Auth Middleware
    });
-
-
-    //  Route::resource('layouts', 'UserCoinController') ;
-  //  Route::patch('question','QuestionController@update')
-  // Route::get('question/{id}', 'QuestionController@show');
