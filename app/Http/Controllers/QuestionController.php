@@ -20,7 +20,15 @@ class QuestionController extends Controller
 
         return view('question.index',['questions' => $question]);
     }
+public function CalCoin(){
 
+  return $ids = Auth::id();
+
+  // $CoinUser = User::find($ids) with-> Question::$UserQId;
+
+
+
+}
 
 
     public function indexid()
@@ -69,8 +77,13 @@ class QuestionController extends Controller
         $discriptions = $request -> discription;
         $Qcoins = $request -> Qcoin;
         $UserQIds = $request -> UserQId;
+
+        $userCoin= Auth::user()->coin;
+        $result = $userCoin - $Qcoins;
+        // return $result;
+
         $id = Auth::id();
-        //create
+
         // return ($id);
 
         $questions = new question;
@@ -80,6 +93,10 @@ class QuestionController extends Controller
         $questions->Qcoin = $Qcoins;
         $questions->UserQId = $id;
 
+        $User = Auth::user();
+        $User->coin = $result;
+
+        $User->save();
         $questions->save();
 
         return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
