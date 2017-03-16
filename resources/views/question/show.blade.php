@@ -43,7 +43,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <div class="panel-heading">Answer</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('question.storeAns')}}">
+                <form class = "" method = "POST" action = "{{route('question.store')}}">
 
                   <textarea rows="10" name = "discription" class = "form-control" placeholder="Your answer"></textarea>
                   <br>

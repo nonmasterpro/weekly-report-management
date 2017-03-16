@@ -60,6 +60,7 @@
                                 </a>
                                 <ul id="topbar" class="dropdown-menu" role="menu">
                                     <li>
+                                      <a id="topbar" href="#">Coins : {{ Auth::user()->coin }}</a>
                                         <a id="topbar" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
