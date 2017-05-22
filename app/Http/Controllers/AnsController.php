@@ -24,7 +24,7 @@ class AnsController extends Controller
     {
       return view('question.show');
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *

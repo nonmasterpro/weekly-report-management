@@ -23,7 +23,7 @@
 <th>Remark</th>
 <th>Status</th>
 </tr>
-
+ 
 
 @foreach($questions as $question)
 <tr>

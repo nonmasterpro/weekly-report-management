@@ -22,7 +22,7 @@
 <th>Status</th>
 </tr>
 
-
+ 
 @foreach($users as $user)
 <tr>
   {{-- <td><a href="{{route('user.show',$user->id)}}">{{$user->name}}</a></td> --}}

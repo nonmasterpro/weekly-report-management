@@ -20,7 +20,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 <th>Action</th>
 <th>Status</th>
 </tr>
-
+ 
 @foreach($questions as $question)
 <tr>
   <td><a href="{{route('question.show',$question->id)}}">{{$question->title}}</a></td>

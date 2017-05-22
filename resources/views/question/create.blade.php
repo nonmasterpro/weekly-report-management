@@ -9,7 +9,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 <button id="myButton1" onclick="window.location.href='/question'"
 class="btn btn-info" type="button" name="button"> Back </button>
 @endIf
-
+ 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

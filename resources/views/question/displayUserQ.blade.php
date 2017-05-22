@@ -3,3 +3,4 @@
 
 <h1>{{$question->discription}}</h1>
 @endforeach
+ 

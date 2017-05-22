@@ -30,7 +30,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
                         <input style="width:150px" type= "text" class = "form-control" name="mentorId" value = "" required><p id="PP"> ***Default user is 1</p><br>
                   <p>Password </p>
                   <input style="width:250px" type= "password" class = "form-control" name="password" placeholder="password..." required><br>
-
+ 
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>

@@ -18,7 +18,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
                     <p>Date </p>
                   <input style="width:180px" type= "date" class = "form-control" name="title" placeholder="your question" value = "{{$question->title}}" required><br>
 </div>
-
+ 
 <p>Work Detail </p>
 
           <div>  <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->

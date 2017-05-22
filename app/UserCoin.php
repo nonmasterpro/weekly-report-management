@@ -8,3 +8,4 @@ class UserCoin extends Model
 {
   protected $table = 'usercoin';
 }
+ 

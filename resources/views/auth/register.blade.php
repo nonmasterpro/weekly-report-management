@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-
+ 
                       {{--  <div class="form-group">
                          <label for="name" class="col-md-4 control-label">Coin</label>
                         <div class="col-md-6">

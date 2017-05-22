@@ -15,7 +15,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
   {{--<button id="reButton" onclick="window.location.href='answer/{{$questions->id}}'"
     class="btn btn-success" type="button" name="button"> Reply </button>--}}
 </h3>
-
+ 
 <div id="questionbox"class="">
   <div id="titleQ" class="">
     <h3>{{$questions->title}}</h3>

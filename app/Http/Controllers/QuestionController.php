@@ -7,7 +7,7 @@ use App\Question;
 use App\Answer;
 use Auth;
 class QuestionController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
