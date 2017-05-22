@@ -2,13 +2,18 @@
 
 @section('content')
 
+@if($user->role==1)
+<button id="myButton" onclick="window.location.href='/question/user'"
+class="btn btn-info" type="button" name="button"> Back </button>
+@else
 <button id="myButton" onclick="window.location.href='/question'"
 class="btn btn-info" type="button" name="button"> Back </button>
+@endif
 
 <div id="listQ" class="row">
-  <h3>Question
-    <button id="reButton" onclick="window.location.href='answer/{{$questions->id}}'"
-    class="btn btn-success" type="button" name="button"> Reply </button>
+  <h3 id="listH3">Report
+  {{--<button id="reButton" onclick="window.location.href='answer/{{$questions->id}}'"
+    class="btn btn-success" type="button" name="button"> Reply </button>--}}
 </h3>
 
 <div id="questionbox"class="">
@@ -18,13 +23,45 @@ class="btn btn-info" type="button" name="button"> Back </button>
   </div><hr id="hr">
 
   <div id="desQ" class="">
-    {{$questions->discription}}
+    <h4>Work Detail</h4>
+    <h5> - {{$questions->discription}}</h5>
+    <br>
+
+    <h4>Remark</h4>
+    <h5> - {{$questions->Qcoin}}</h5>
 
   </div>
 
+@if($user->role==2&&$questions->status==1)
+  <div class="butt" id="butt">
+
+    <form action="{{ URL('question/'.$questions->id.'/reject')}}" method="get" >
+        <button id="myButton2" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')">Reject</button>
+    </form>
+
+  <form action="{{ URL('question/'.$questions->id.'/approve')}}" method="get" >
+      <button id="myButton3" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
+  </form>
+
+
+
+
+
+    {{-- <button id="myButton" onclick="updateStatus()"
+    class="btn btn-danger" type="button" name="button"> Reject </button>
+    <button id="myButton" onclick="updateStatus()"
+    class="btn btn-success appp" type="button" name="button"> Approve </button> --}}
+
+  </div>
+@endif
+
   </div>
 
-@foreach($answers as $answer)
+
+
+
+
+{{-- @foreach($answers as $answer)
 <br>
   <div id="answerbox"class="">
     <div id="titleQ" class="">
@@ -58,11 +95,16 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </div>
 
 
-</div>
+</div> --}}
 
 @stop
 
+
+
 <style media="screen">
+.butt{
+  margin-right: -20px;
+}
 
 #ansButton{
   float: right;
@@ -84,6 +126,11 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 #listQ{
   padding: 20px 100px;
+  /*margin-left: 20px;*/
+
+}
+#listH3{
+  margin-left: 90px;
 
 }
 #hr{
@@ -123,4 +170,15 @@ class="btn btn-info" type="button" name="button"> Back </button>
   margin-right: 50px;
   margin-bottom: 10px;
 }
+#myButton2{
+  position: absolute;
+  right: 235px;
+  top: 385px;
+}
+#myButton3{
+  position: absolute;
+  right: 310px;
+  top: 385px;
+}
+
 </style>

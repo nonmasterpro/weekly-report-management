@@ -13,12 +13,15 @@ class CreateQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('Question', function (Blueprint $table) {
+        Schema::create('question', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->date('title');
             $table->string('discription');
-            $table->double('Qcoin'); //->default(100.0)
-            $table->integer('UserQId');
+            $table->string('Qcoin'); //->default(100.0)
+            $table->string('username');
+            $table->integer('userId');
+            $table->integer('status');
+            $table->integer('mentorId');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Question');
+        Schema::dropIfExists('question');
     }
 }

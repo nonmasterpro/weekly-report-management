@@ -15,16 +15,30 @@ class QuestionController extends Controller
      */
     public function index()
     {
+      $User = Auth::user();
+      $ids = $User->mentorId;
 
-        $question = Question::all();
+      $ids = explode(",", $ids);
+      $question = array();
+      foreach($ids as $id) {
+      $q = question::where('mentorId', $id)->get();
+          // if(!is_null($q['questions'])) {
+              // $question = array_merge($question, $q['questions']->toArray());
+          // }
+      }
+      return view('question.index', ['questions' => $q], ['user' => $User]);
 
-        return view('question.index',['questions' => $question]);
+        // $question = Question::all();
+        //
+        // return view('question.index',['questions' => $question]);
     }
-public function CalCoin(){
 
-  return $ids = Auth::id();
 
-  // $CoinUser = User::find($ids) with-> Question::$UserQId;
+      public function CalCoin(){
+
+        return $ids = Auth::id();
+
+        // $CoinUser = User::find($ids) with-> Question::$UserQId;
 
 
 
@@ -35,15 +49,16 @@ public function CalCoin(){
     {
 
         $ids = Auth::id();
+        $User = Auth::user();
         $ids = explode(",", $ids);
         $question = array();
         foreach($ids as $id) {
-        $q = question::where('UserQId', $id)->get();
+        $q = question::where('userId', $id)->get();
             // if(!is_null($q['questions'])) {
                 // $question = array_merge($question, $q['questions']->toArray());
             // }
         }
-        return view('question.indexid', ['questions' => $q]);
+        return view('question.indexid', ['questions' => $q], ['user' => $User]);
 
     }
 
@@ -55,7 +70,9 @@ public function CalCoin(){
     public function create()
     {
         //
-        return view('question.create');
+        $User = Auth::user();
+
+        return view('question.create', ['user' => $User]);
     }
 
     /**
@@ -76,13 +93,18 @@ public function CalCoin(){
         $titles = $request -> title;
         $discriptions = $request -> discription;
         $Qcoins = $request -> Qcoin;
-        $UserQIds = $request -> UserQId;
+        $UserQIds = $request -> username;
+        $Status = $request -> status;
+        $MentorId = $request -> mentorId;
 
-        $userCoin= Auth::user()->coin;
-        $result = $userCoin - $Qcoins;
+
+        // $userCoin= Auth::user()->coin;
+        // $result = $userCoin - $Qcoins;
+
         // return $result;
 
         $id = Auth::id();
+        $User = Auth::user();
 
         // return ($id);
 
@@ -91,15 +113,18 @@ public function CalCoin(){
         $questions->title = $titles;
         $questions->discription = $discriptions;
         $questions->Qcoin = $Qcoins;
-        $questions->UserQId = $id;
+        $questions->username = $User->name;
+        $questions->userId = $id;
+        $questions->status = $Status;
+        $questions->mentorId = $MentorId;
 
-        $User = Auth::user();
-        $User->coin = $result;
 
-        $User->save();
+        // $User->coin = $result;
+
+        // $User->save();
         $questions->save();
 
-        return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
+        return redirect('question/user');
     }
 
     /**
@@ -110,7 +135,8 @@ public function CalCoin(){
      */
     public function show($id)
     {
-      $u = Auth::user();
+      $User = Auth::user();
+
       $ids = $id;
       $ids = explode(",", $ids);
 
@@ -118,29 +144,14 @@ public function CalCoin(){
       $q = answer::where('QId', $i)->get();
       }
 
-      // ///////
-      //       $idu = Auth::id();
-      //
-      //       $answers = $request -> answer;
-      //
-      //       $ans = new answer;
-      //
-      //       $ans->answer = $answers;
-      //       $ans->UserId = $idu;
-      //       $ans->QId = $id;
-      //
-      //       $ans->save();
-      // ///////
 
-
-      return view('question.show', ['questions' => question::findOrFail($id)],
-                                   ['answers' => $q]);
+      return view('question.show', ['questions' => question::findOrFail($id)],['user' => $User]);
 
     }
 
-    public function createAns($id)
+    public function createAns()
     {
-        return view('question.answer', ['aaaa' => $id]);
+        return view('question.answer');
     }
 
     public function storeAns(Request $request,$id)
@@ -192,6 +203,8 @@ public function CalCoin(){
           $discriptions = $request -> discription;
           $Qcoins = $request -> Qcoin;
           $UserQIds = $request -> UserQId;
+          $MentorId = $request -> mentorId;
+
           // $idu = Auth::id();
 
           $question = Question::findOrFail($id);
@@ -199,12 +212,14 @@ public function CalCoin(){
           $question->title = $titles;
           $question->discription = $discriptions;
           $question->Qcoin = $Qcoins;
+          $question->mentorId = $MentorId;
+          $question->status = 1;
           // $question->UserQId = $idu;
           $question->save();
 
           // return view('question.indexid');
 
-          return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
+          return redirect('question/user')->with('alert-success','Data Hasbeen Saved');
     }
 
     /**
@@ -218,7 +233,39 @@ public function CalCoin(){
         //
         $questions = Question::findOrFail($id);
         $questions->delete();
-        return redirect()->route('question.index')->with('alert-success','Data Hasbeen Saved');
+        return redirect('question/user')->with('alert-success','Data Hasbeen Saved');
+
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+     public function updatestatusA($id)
+    {
+        $question = Question::findOrFail($id);
+        $question->update(['status' => 2]);
+        // dd($question);
+
+        return redirect('question');
+
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+     public function updatestatusR($id)
+    {
+        $question = Question::findOrFail($id);
+        $question->update(['status' => 3]);
+        // dd($question);
+
+        return redirect('question');
 
     }
 }

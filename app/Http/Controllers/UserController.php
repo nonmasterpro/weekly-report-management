@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
-class UserCoinController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,9 @@ class UserCoinController extends Controller
      */
     public function index()
     {
+      $user = user::all();
 
+      return view('user.index',['users' => $user]);
 
     }
 
@@ -25,6 +29,9 @@ class UserCoinController extends Controller
     public function create()
     {
         //
+        $User = Auth::user();
+
+        return view('user.create', ['user' => $User]);
     }
 
     /**
@@ -36,6 +43,24 @@ class UserCoinController extends Controller
     public function store(Request $request)
     {
         //
+        $name = $request -> name;
+        $email = $request -> email;
+        $role = $request -> role;
+        $mentorId = $request -> mentorId;
+        $password = $request -> password;
+
+        $user = new user;
+
+        $user->name = $name;
+        $user->email = $email;
+        $user->role = $role;
+        $user->mentorId = $mentorId;
+        $user->password = $password;
+        // $question->UserQId = $idu;
+        $user->save();
+
+        return redirect('user');
+
     }
 
     /**
@@ -66,6 +91,11 @@ class UserCoinController extends Controller
     public function edit($id)
     {
         //
+        $user = user::findOrFail($id);
+
+
+
+    return view('user.edit', compact('user'));
     }
 
     /**
@@ -78,6 +108,27 @@ class UserCoinController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $name = $request -> name;
+        $email = $request -> email;
+        $role = $request -> role;
+        $mentorId = $request -> mentorId;
+        $password = $request -> password;
+
+        // $idu = Auth::id();
+
+        $user = user::findOrFail($id);
+
+        $user->name = $name;
+        $user->email = $email;
+        $user->role = $role;
+        $user->mentorId = $mentorId;
+        $user->password = $password;
+        // $question->UserQId = $idu;
+        $user->save();
+
+        // return view('question.indexid');
+
+        return redirect('user')->with('alert-success','Data Hasbeen Saved');
     }
 
     /**
@@ -89,5 +140,8 @@ class UserCoinController extends Controller
     public function destroy($id)
     {
         //
+        $user = user::findOrFail($id);
+        $user->delete();
+        return redirect('user')->with('alert-success','Data Hasbeen Saved');
     }
 }

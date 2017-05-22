@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->double('coin')->default(100.00);
+            $table->integer('role')->default(1);
+            $table->integer('mentorId')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

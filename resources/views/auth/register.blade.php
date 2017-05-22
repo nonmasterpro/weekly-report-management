@@ -25,15 +25,16 @@
                         </div>
 
 
-                        <div class="form-group">
-
-                        <label for="name" class="col-md-4 control-label">Coin</label>
+                      {{--  <div class="form-group">
+                         <label for="name" class="col-md-4 control-label">Coin</label>
                         <div class="col-md-6">
-                            <input id="coin" type="hidden" class="form-control" name="coin" value="100" required autofocus>
-                            <input class="form-control" value="100" required autofocus disabled>
+                          <input class="form-control" value="100" required autofocus disabled>
+                        </div>
+                        </div> --}}
 
-                        </div>
-                        </div>
+                        <input id="role" type="hidden" class="form-control" name="role" value="1" required autofocus>
+                        <input id="mentorId" type="hidden" class="form-control" name="mentorId" value="1" required autofocus>
+
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>

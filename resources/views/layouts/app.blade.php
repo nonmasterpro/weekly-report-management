@@ -12,6 +12,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 
     <!-- Scripts -->
     <script>
@@ -23,7 +30,7 @@
 <body>
     <div id="app">
       <div >
-        <nav id="topbar" class="navbar navbar-default navbar-static-top">
+        <nav id="topbar" class="navbar navbar-default navbar-static-top topbarr aaaaa">
             <div class="container">
                 <div class="navbar-header">
 
@@ -36,8 +43,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a id="aa"class="navbar-brand" href="{{ url('/question') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a id="aa"class="navbar-brand topbarr" href="{{ url('/home') }}">
+                        Weekly Report & Time Stamp
                     </a>
                 </div>
 
@@ -48,26 +55,39 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul  class="nav navbar-nav navbar-right">
+                    <ul  class="nav navbar-nav navbar-right topbarr">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a id="aa"href="{{ route('login') }}">Login</a></li>
                             <li><a id="aa"href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="dropdown">
-                                <a id="topbar"href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <li class="dropdownBell">
+                          <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
+                             <i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                          </a>
+
+                          <ul id="topbar" class="dropdown-menu topbarr" role="menu">
+                              <li>
+                                <form class="" action="" method="post">
+                                      <button style="width:100%;background-color: #5A5656"type="submit" name="button">yooooo</button>
+                                </form>
+                              </li>
+                          </ul>
+
+                        </li>
+                            <li class="dropdown topbarr">
+                                <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-                                <ul id="topbar" class="dropdown-menu" role="menu">
+                                <ul id="topbar" class="dropdown-menu topbarr" role="menu">
                                     <li>
-                                      <a id="topbar" href="#">Coins : {{ Auth::user()->coin }}</a>
-                                        <a id="topbar" href="{{ route('logout') }}"
+                                        <a class="topbarr"id="topbar" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form class="topbarr" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -90,7 +110,7 @@
 
 <style>
 #topbar{
-  background-color: #5A5656;
+  /*background-color: #5A5656!important;*/
    /*#5A5656*/
   color: white!important;
 }

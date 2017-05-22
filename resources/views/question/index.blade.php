@@ -2,34 +2,43 @@
 
 @section('content')
 <div class="">
-  <button id="askButton" onclick="window.location.href='question/create'"
+{{--  <button id="askButton" onclick="window.location.href='question/create'"
   class="btn btn-success" type="button" name="button"> Ask Question </button>
 
   <button id="myButton" onclick="window.location.href='question/user'"
-  class="btn btn-primary" type="button" name="button"> My Question </button>
+  class="btn btn-primary" type="button" name="button"> My Question </button> --}}
 
-
+  <button id="myButton1" onclick="window.location.href='/home'"
+  class="btn btn-info" type="button" name="button"> Back </button>
 
 </div>
 
 <div id="listQ" class="row">
-  <h3>Question
+  <h3>Weekly Report
 </h3>
 <table class="table table-striped">
 <tr>
-<th>Title</th>
-<!-- <th>Discription</th> -->
-<th>Price</th>
-<th>Post at</th>
+<th>Name</th>
+<th>Date</th>
+<th>Remark</th>
+<th>Status</th>
 </tr>
 
 
 @foreach($questions as $question)
 <tr>
-  <td><a href="{{route('question.show',$question->id)}}">{{$question->title}}</a></td>
-  <!-- <td>{{$question->discription}}</td> -->
+  <td><a href="{{route('question.show',$question->id)}}">{{$question->username}}</a></td>
+  <td> {{$question->title}}</td>
   <td>{{$question->Qcoin}}</td>
-  <td>{{$question->created_at}}</td>
+  <td>
+    @if($question->status==1)
+    <span id="span1">Pending</span>
+    @elseif($question->status==2)
+    <span id="span2">Approve</span>
+    @elseif($question->status==3)
+    <span id="span3">Reject</span>
+    @endif
+  </td>
   <!-- <td>
 <form class = "" action="{{route('question.destroy',$question->id)}}" method="post">
   <input type ="hidden" name="_method" value="delete">
@@ -45,6 +54,25 @@
 @stop
 
 <style media="screen">
+#span1 {
+  padding: 5 5 5 5;
+  background-color: rgb(57, 151, 191);
+  color: white;
+  border-style: double;
+
+}
+#span2 {
+  padding: 5 5 5 5;
+  background-color: rgb(5, 207, 86);
+  color: white;
+  border-style: double;
+}
+#span3 {
+  padding: 5 5 5 5;
+  background-color: rgb(236, 63, 89);
+  color: white;
+  border-style: double;
+}
   #listQ{
     padding: 20px 100px;
   }
@@ -56,6 +84,11 @@
   #myButton{
     float: right;
     margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  #myButton1{
+    float: right;
+    margin-right: 80px;
     margin-bottom: 10px;
   }
 </style>
