@@ -22,16 +22,20 @@ class="btn btn-info" type="button" name="button"> Back </button>
                     <input style="width:250" type= "text" class = "form-control" name="email" value = "{{$user->email}}" required><br>
                     <p>Role </p>
                       <!-- <input style="width:180px" type= "text" class = "form-control" name="name" value = "{{$user->role}}"><br> -->
-                      <select id="selectRole" class="selectpicker" data-style="btn-primary" name="role" required>
+                      <select class="selectpicker" data-style="btn-primary" name="role" required>
                         <option value="1">User</option>
                         <option value="2">Mentor</option>
                         <option value="3">Admin</option>
                       </select>
+
                       <p>Mentor ID </p>
                         <input style="width:150px" type= "text" class = "form-control" name="mentorId" value = "{{$user->mentorId}}" required><p id="PP"> ***Default user is 1</p><br>
-                  <p>Password </p>
-                  <input style="width:250px" type= "password" class = "form-control" name="password" placeholder="password..." required><br>
- 
+
+                      
+
+                {{--  <p>Password </p>
+                  <input style="width:250px" type= "password" class = "form-control" name="password" placeholder="password..." required><br> --}}
+
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>
