@@ -9,7 +9,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 <button id="myButton1" onclick="window.location.href='/question'"
 class="btn btn-info" type="button" name="button"> Back </button>
 @endIf
- 
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -29,8 +29,26 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
                   <input id="status" name="status" type="hidden" class="form-control" name="role" value="1" required autofocus>
 
-                  <p>Mentor ID </p>
-                  <input type= "text" class = "form-control" name="mentorId" placeholder="MentorID..." required><br>
+                  <p>Mentor </p>
+
+                  {{-- <input type= "text" class = "form-control" name="mentorId" placeholder="MentorID..." required><br> --}}
+
+                  {{-- <select class="selectpicker" name="mentorId">
+                    @foreach ($users as $u)
+                    @if($u->mentorId!=1 && $u->mentorId!=99)
+                    <option value="{{$u->mentorId}}">{{$u->name}}, {{$u->mentorId}}</option>
+                    @endif
+                    @endforeach
+                  </select><br /><br /> --}}
+
+                  <input type="text" name="mentorid" list="colors" autocomplete="off" required>
+                  <datalist id="colors">
+                    @foreach ($users as $u)
+                      @if($u->mentorId!=1 && $u->mentorId!=99)
+                      <option value="{{$u->mentorId}}">{{$u->name}}, {{$u->mentorId}}</option>
+                      @endif
+                    @endforeach
+                  </datalist>
 
                   <p>Remark </p>
                   <input type= "text" class = "form-control" name="Qcoin" placeholder="Remark..." required><br>

@@ -11,10 +11,21 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
-    }
+     public function boot()
+       {
+          // $id = Auth::id();
+          //
+          // $question = Question::findOrFail($id);
+          //
+          // $ids = $id;
+          // $ids = explode(",", $ids);
+          //
+          // foreach($ids as $i) {
+          // $q = question::where('mentorId', $i)->get();
+          // }
+          //
+          // view()->share('question', ['qq'=> $q] , ['questions' => $question]);
+       }
 
     /**
      * Register any application services.

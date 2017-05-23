@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
- 
+
 
     <!-- Scripts -->
     <script>
@@ -61,6 +61,8 @@
                             <li><a id="aa"href="{{ route('login') }}">Login</a></li>
                             <li><a id="aa"href="{{ route('register') }}">Register</a></li>
                         @else
+
+
                         <li class="dropdownBell">
                           <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
                              <i class="fa fa-bell-o" aria-hidden="true"></i></span>
@@ -69,18 +71,22 @@
                           <ul id="topbar" class="dropdown-menu topbarr" role="menu">
                               <li>
                                 <form class="" action="" method="post">
-                                      <button style="width:100%;background-color: #5A5656"type="submit" name="button">yooooo</button>
+                                {{--  @foreach($questions as $question)
+                                  <a href="#">{{$question->title}}</a><br />
+                                  @endforeach --}}
                                 </form>
                               </li>
                           </ul>
-
                         </li>
+
+
                             <li class="dropdown topbarr">
                                 <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <ul id="topbar" class="dropdown-menu topbarr" role="menu">
                                     <li>
+
                                         <a class="topbarr"id="topbar" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -93,6 +99,8 @@
                                     </li>
                                 </ul>
                             </li>
+
+
                         @endif
                     </ul>
                 </div>

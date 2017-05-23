@@ -18,15 +18,35 @@ class="btn btn-info" type="button" name="button"> Back </button>
                     <p>Date </p>
                   <input style="width:180px" type= "date" class = "form-control" name="title" placeholder="your question" value = "{{$question->title}}" required><br>
 </div>
- 
+
 <p>Work Detail </p>
 
           <div>  <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
                   <textarea rows="10" name = "discription" class = "form-control" placeholder="main" value = "{{$question->discription}}" required>{{$question->discription}}</textarea><br>
           </div>
 
-<p>Mentor ID </p>
-<input type= "text" class = "form-control" name="mentorId" value="{{$question->mentorId}}"placeholder="MentorID..." required><br>
+          <p>Mentor ID</p>
+
+          {{-- <input type= "text" class = "form-control" name="mentorId" placeholder="MentorID..." required><br> --}}
+
+          {{--<select class="selectpicker" name="mentorId" >
+            @foreach ($users as $u)
+            @if($u->mentorId!=1 && $u->mentorId!=99)
+            <option value="{{$u->mentorId}}">{{$u->name}}, {{$u->mentorId}}</option>
+            @endif
+            @endforeach
+          </select><br /><br /> --}}
+
+          <input type="text" name="mentorid" list="colors" autocomplete="off" required>
+          <datalist id="colors">
+            @foreach ($users as $u)
+              @if($u->mentorId!=1 && $u->mentorId!=99)
+              <option value="{{$u->mentorId}}">{{$u->name}}, {{$u->mentorId}}</option>
+              @endif
+            @endforeach
+          </datalist>
+
+
 
 <p>Remark </p>
 

@@ -5,9 +5,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Answer;
+use App\User;
 use Auth;
 class QuestionController extends Controller
-{ 
+{
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +17,12 @@ class QuestionController extends Controller
     public function index()
     {
       $User = Auth::user();
-      $ids = $User->mentorId;
+      $ids = $User->mentorid;
 
       $ids = explode(",", $ids);
       $question = array();
       foreach($ids as $id) {
-      $q = question::where('mentorId', $id)->get();
+      $q = question::where('mentorid', $id)->get();
           // if(!is_null($q['questions'])) {
               // $question = array_merge($question, $q['questions']->toArray());
           // }
@@ -71,8 +72,9 @@ class QuestionController extends Controller
     {
         //
         $User = Auth::user();
+        $user = user::all();
 
-        return view('question.create', ['user' => $User]);
+        return view('question.create', ['user' => $User],['users' => $user]);
     }
 
     /**
@@ -95,7 +97,7 @@ class QuestionController extends Controller
         $Qcoins = $request -> Qcoin;
         $UserQIds = $request -> username;
         $Status = $request -> status;
-        $MentorId = $request -> mentorId;
+        $mentorid = $request -> mentorid;
 
 
         // $userCoin= Auth::user()->coin;
@@ -116,7 +118,7 @@ class QuestionController extends Controller
         $questions->username = $User->name;
         $questions->userId = $id;
         $questions->status = $Status;
-        $questions->mentorId = $MentorId;
+        $questions->mentorid = $mentorid;
 
 
         // $User->coin = $result;
@@ -183,10 +185,11 @@ class QuestionController extends Controller
     public function edit($id)
     {
             $question = Question::findOrFail($id);
+            $user = user::all();
 
 
 
-        return view('question.edit', compact('question'));
+        return view('question.edit', compact('question'), ['users'=>$user]);
     }
 
     /**
@@ -203,7 +206,7 @@ class QuestionController extends Controller
           $discriptions = $request -> discription;
           $Qcoins = $request -> Qcoin;
           $UserQIds = $request -> UserQId;
-          $MentorId = $request -> mentorId;
+          $mentorid = $request -> mentorid;
 
           // $idu = Auth::id();
 
@@ -212,7 +215,7 @@ class QuestionController extends Controller
           $question->title = $titles;
           $question->discription = $discriptions;
           $question->Qcoin = $Qcoins;
-          $question->mentorId = $MentorId;
+          $question->mentorid = $mentorid;
           $question->status = 1;
           // $question->UserQId = $idu;
           $question->save();

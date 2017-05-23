@@ -21,7 +21,7 @@ class CreateQuestionTable extends Migration
             $table->string('username');
             $table->integer('userId');
             $table->integer('status');
-            $table->integer('mentorId');
+            $table->integer('mentorid');
             $table->timestamps();
         });
     }

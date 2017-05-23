@@ -7,7 +7,7 @@ use App\User;
 use Auth;
 
 class UserController extends Controller
-{ 
+{
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +46,7 @@ class UserController extends Controller
         $name = $request -> name;
         $email = $request -> email;
         $role = $request -> role;
-        $mentorId = $request -> mentorId;
+        $mentorid = $request -> mentorid;
         $password = $request -> password;
 
         $user = new user;
@@ -54,8 +54,8 @@ class UserController extends Controller
         $user->name = $name;
         $user->email = $email;
         $user->role = $role;
-        $user->mentorId = $mentorId;
-        $user->password = $password;
+        $user->mentorid = $mentorid;
+        $user->password = bcrypt($password);
         // $question->UserQId = $idu;
         $user->save();
 
@@ -92,10 +92,10 @@ class UserController extends Controller
     {
         //
         $user = user::findOrFail($id);
+        $User = user::all();
 
 
-
-    return view('user.edit', compact('user'));
+    return view('user.edit', compact('user'), ['users' => $User]);
     }
 
     /**
@@ -111,8 +111,8 @@ class UserController extends Controller
         $name = $request -> name;
         $email = $request -> email;
         $role = $request -> role;
-        $mentorId = $request -> mentorId;
-        $password = $request -> password;
+        $mentorid = $request -> mentorid;
+        // $password = $request -> password;
 
         // $idu = Auth::id();
 
@@ -121,8 +121,8 @@ class UserController extends Controller
         $user->name = $name;
         $user->email = $email;
         $user->role = $role;
-        $user->mentorId = $mentorId;
-        $user->password = $password;
+        $user->mentorid = $mentorid;
+        // $user->password = $password;
         // $question->UserQId = $idu;
         $user->save();
 

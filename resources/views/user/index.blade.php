@@ -18,17 +18,19 @@
 <th>Name</th>
 <th>Email</th>
 <th>Password</th>
+<th>Mentor ID</th>
 <th>Action</th>
 <th>Status</th>
 </tr>
 
- 
+
 @foreach($users as $user)
 <tr>
   {{-- <td><a href="{{route('user.show',$user->id)}}">{{$user->name}}</a></td> --}}
   <td>{{$user->name}}</td>
   <td> {{$user->email}}</td>
   <td>😙😙😙😙😙</td>
+  <td>{{$user->mentorId}}</td>
   <td>
     <form class = "" action="{{route('user.destroy',$user->id)}}" method="post">
     <input type ="hidden" name="_method" value="delete">
