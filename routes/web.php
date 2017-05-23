@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
- 
+
 // Route::get('/answer', function () {
 //     return view('question/answer');
 // });
@@ -30,19 +30,26 @@ Route::get('/home', 'HomeController@index');
 
   Route::group(['middleware' => ['web']], function () {
 
-  Route::get('question/user', 'QuestionController@indexid');
-
-  // Route::get('question/answer/{question}', 'QuestionController@createAns');
-  // Route::post('question/answer/{question}', 'QuestionController@storeAns')->name('question.storeAns');
-
-  Route::resource('question', 'QuestionController') ;
-
-  // Route::resource('question/{id}', 'QuestionController@upStatindexusApp') ;
-  Route::get('question/{id}/approve','QuestionController@updatestatusA');
-  Route::get('question/{id}/reject','QuestionController@updatestatusR');
+  // Route::get('weekly/user', 'QuestionController@indexid');
+  // Route::get('weekly', 'QuestionController@index');
+  // Route::get('weekly/{id}', 'QuestionController@show');
+  // Route::get('weeklyCreate', 'QuestionController@create');
+  // Route::get('weekly/{id}/edit', 'QuestionController@edit');
+  // Route::get('weekly/{id}/edit', 'QuestionController@update');
+  // Route::resource('question', 'QuestionController') ;
+  // Route::get('weekly/{id}/approve','QuestionController@updatestatusA');
+  // Route::get('weekly/{id}/reject','QuestionController@updatestatusR');
         // Uses Auth Middleware
 
   Route::resource('user', 'UserController') ;
+
+  //
+
+  Route::get('weekly/user', 'WeeklyController@indexid');
+  Route::get('weekly/{id}/approve','WeeklyController@updatestatusA');
+  Route::get('weekly/{id}/reject','WeeklyController@updatestatusR');
+  Route::resource('weekly', 'WeeklyController');
+  
 
 });
 

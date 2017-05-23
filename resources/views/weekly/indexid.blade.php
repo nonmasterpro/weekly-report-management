@@ -22,17 +22,17 @@ class="btn btn-info" type="button" name="button"> Back </button>
 <th>Status</th>
 </tr>
 
-@foreach($questions as $question)
+@foreach($weeklys as $weekly)
 <tr>
-  <td><a href="{{route('question.show',$question->id)}}">{{$question->title}}</a></td>
-  <td>{{$question->Qcoin}}</td>
-  <td>{{$question->mentorid}}</td>
+  <td><a href="{{route('weekly.show',$weekly->id)}}">{{$weekly->title}}</a></td>
+  <td>{{$weekly->Qcoin}}</td>
+  <td>{{$weekly->mentorid}}</td>
   <td>
-    <form class = "" action="{{route('question.destroy',$question->id)}}" method="post">
+    <form class = "" action="{{route('weekly.destroy',$weekly->id)}}" method="post">
     <input type ="hidden" name="_method" value="delete">
     <input type ="hidden" name="_token" value="{{ csrf_token() }}">
-    @if($question->status==1||$question->status==3)
-    <a href="{{route('question.edit',$question->id)}}" class="btn btn-primary">Edit</a>
+    @if($weekly->status==1||$weekly->status==3)
+    <a href="{{route('weekly.edit',$weekly->id)}}" class="btn btn-primary">Edit</a>
     <input type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="delete">
     @else
     <h1 id="yimyim">😁😚😁</h1>
@@ -40,11 +40,11 @@ class="btn btn-info" type="button" name="button"> Back </button>
   </form>
   </td>
   <td>
-  @if($question->status==1)
+  @if($weekly->status==1)
   <span id="span1">Pending</span>
-  @elseif($question->status==2)
+  @elseif($weekly->status==2)
   <span id="span2">Approve</span>
-  @elseif($question->status==3)
+  @elseif($weekly->status==3)
   <span id="span3">Reject</span>
   @endif
   </td>

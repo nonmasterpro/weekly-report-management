@@ -12,16 +12,16 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <div class="panel-heading">Edit Report</div>
 
                 <div class = "panel-body">
-                <form class = "" onsubmit="return validateForm()" name="aa" method = "post" action = "{{route('question.update',$question->id)}}">
+                <form class = "" onsubmit="return validateForm()" name="aa" method = "post" action = "{{route('weekly.update',$weekly->id)}}">
                   <input name="_method" type="hidden" value="PATCH">
                   <div>
                     <p>Date </p>
-                  <input style="width:180px" type= "date" class = "form-control" name="title"  value = "{{$question->title}}" required><br>
+                  <input style="width:180px" type= "date" class = "form-control" name="title"  value = "{{$weekly->title}}" required><br>
                   </div>
 
                   <p>Work Detail </p>
                     <div>  <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
-                        <textarea rows="10" name = "discription" class = "form-control" value = "{{$question->discription}}" required>{{$question->discription}}</textarea><br>
+                        <textarea rows="10" name = "discription" class = "form-control" value = "{{$weekly->discription}}" required>{{$weekly->discription}}</textarea><br>
                     </div>
 
                   <p>Mentor ID</p>
@@ -43,7 +43,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
                           </datalist> --}}
 
                   <p>Remark </p>
-                      <input type= "text" class = "form-control" name="Qcoin" value="{{$question->Qcoin}}" required><br>
+                      <input type= "text" class = "form-control" name="Qcoin" value="{{$weekly->Qcoin}}" required><br>
 
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -53,7 +53,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </div>
 
 <script type="text/javascript">
-  var id = '<?php echo($question->mentorid); ?>';
+  var id = '<?php echo($weekly->mentorid); ?>';
     $(document).ready(function() {
       $('#menterid').val(id);
     });

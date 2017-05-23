@@ -17,7 +17,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <div class="panel-heading">Weekly Report</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('question.store')}}">
+                <form class = "" method = "POST" action = "{{route('weekly.store')}}">
 
 
                   <p>Date </p>

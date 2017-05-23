@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Question;
+use App\Weekly;
 use App\Answer;
 use App\User;
 use Auth;
-class QuestionController extends Controller
+class WeeklyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,28 +23,18 @@ class QuestionController extends Controller
       $ids = explode(",", $ids);
       $question = array();
       foreach($ids as $id) {
-      $q = question::where('mentorid', $id)->get();
+      $q = weekly::where('mentorid', $id)->get();
           // if(!is_null($q['questions'])) {
               // $question = array_merge($question, $q['questions']->toArray());
           // }
       }
-      return view('question.index', ['questions' => $q], ['user' => $User]);
+      return view('weekly.index', ['weeklys' => $q], ['user' => $User]);
 
         // $question = Question::all();
         //
         // return view('question.index',['questions' => $question]);
     }
 
-
-      public function CalCoin(){
-
-        return $ids = Auth::id();
-
-        // $CoinUser = User::find($ids) with-> Question::$UserQId;
-
-
-
-}
 
 
     public function indexid()
@@ -54,12 +45,12 @@ class QuestionController extends Controller
         $ids = explode(",", $ids);
         $question = array();
         foreach($ids as $id) {
-        $q = question::where('userId', $id)->get();
+        $q = weekly::where('userId', $id)->get();
             // if(!is_null($q['questions'])) {
                 // $question = array_merge($question, $q['questions']->toArray());
             // }
         }
-        return view('question.indexid', ['questions' => $q], ['user' => $User]);
+        return view('weekly.indexid', ['weeklys' => $q], ['user' => $User]);
 
     }
 
@@ -73,10 +64,10 @@ class QuestionController extends Controller
         //
         $User = Auth::user();
         $user = user::all();
-        $question = question::all();
+        $weekly = weekly::all();
 
 
-        return view('question.create', ['user' => $User],['users' => $user],compact('question'));
+        return view('weekly.create', ['user' => $User],['users' => $user],compact('weekly'));
     }
 
     /**
@@ -112,7 +103,7 @@ class QuestionController extends Controller
 
         // return ($id);
 
-        $questions = new question;
+        $questions = new weekly;
 
         $questions->title = $titles;
         $questions->discription = $discriptions;
@@ -149,34 +140,10 @@ class QuestionController extends Controller
       }
 
 
-      return view('question.show', ['questions' => question::findOrFail($id)],['user' => $User]);
+      return view('weekly.show', ['weeklys' => weekly::findOrFail($id)],['user' => $User]);
 
     }
 
-    public function createAns()
-    {
-        return view('question.answer');
-    }
-
-    public function storeAns(Request $request,$id)
-    {
-      ///////
-            $idu = Auth::id();
-
-          return  $answerss = $request -> answer;
-
-            $ans = new answer;
-
-            $ans->answer = $answerss;
-            $ans->UserId = $idu;
-            $ans->QId = $id;
-
-            $ans->save();
-      ///////
-
-      return redirect()->route('question.show')->with('alert-success','Data Hasbeen Saved');
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -186,12 +153,12 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-            $question = Question::findOrFail($id);
+            $weekly = weekly::findOrFail($id);
             $user = user::all();
 
 
 
-        return view('question.edit', compact('question'), ['users'=>$user]);
+        return view('weekly.edit', compact('weekly'), ['users'=>$user]);
     }
 
     /**
@@ -212,7 +179,7 @@ class QuestionController extends Controller
 
           // $idu = Auth::id();
 
-          $question = Question::findOrFail($id);
+          $question = weekly::findOrFail($id);
 
           $question->title = $titles;
           $question->discription = $discriptions;
@@ -236,7 +203,7 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         //
-        $questions = Question::findOrFail($id);
+        $questions = weekly::findOrFail($id);
         $questions->delete();
         return redirect('weekly/user')->with('alert-success','Data Hasbeen Saved');
 
@@ -250,7 +217,7 @@ class QuestionController extends Controller
      */
      public function updatestatusA($id)
     {
-        $question = Question::findOrFail($id);
+        $question = weekly::findOrFail($id);
         $question->update(['status' => 2]);
         // dd($question);
 
@@ -266,7 +233,7 @@ class QuestionController extends Controller
      */
      public function updatestatusR($id)
     {
-        $question = Question::findOrFail($id);
+        $question = weekly::findOrFail($id);
         $question->update(['status' => 3]);
         // dd($question);
 

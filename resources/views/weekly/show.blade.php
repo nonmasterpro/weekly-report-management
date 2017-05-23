@@ -12,34 +12,33 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 <div id="listQ" class="row">
   <h3 id="listH3">Report
-  {{--<button id="reButton" onclick="window.location.href='answer/{{$questions->id}}'"
-    class="btn btn-success" type="button" name="button"> Reply </button>--}}
+
 </h3>
 
 <div id="questionbox"class="">
   <div id="titleQ" class="">
-    <h3>{{$questions->title}}</h3>
+    <h3>{{$weeklys->title}}</h3>
 
   </div><hr id="hr">
 
   <div id="desQ" class="">
     <h4>Work Detail</h4>
-    <h5> - {{$questions->discription}}</h5>
+    <h5> - {{$weeklys->discription}}</h5>
     <br>
 
     <h4>Remark</h4>
-    <h5> - {{$questions->Qcoin}}</h5>
+    <h5> - {{$weeklys->Qcoin}}</h5>
 
   </div>
 
-@if($user->role==2&&$questions->status==1)
+@if($user->role==2&&$weeklys->status==1)
   <div class="butt" id="butt">
 
-    <form action="{{ URL('weekly/'.$questions->id.'/reject')}}" method="get" >
+    <form action="{{ URL('weekly/'.$weeklys->id.'/reject')}}" method="get" >
         <button id="myButton2" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')">Reject</button>
     </form>
 
-  <form action="{{ URL('weekly/'.$questions->id.'/approve')}}" method="get" >
+  <form action="{{ URL('weekly/'.$weeklys->id.'/approve')}}" method="get" >
       <button id="myButton3" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
   </form>
 
@@ -61,41 +60,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 
 
-{{-- @foreach($answers as $answer)
-<br>
-  <div id="answerbox"class="">
-    <div id="titleQ" class="">
-      <br/>
-      <h3>Answer{{$answer->id}}</h3>
-      <h4 id="answer">{{$answer->answer}}</h4>
-      <h4 id="nameU">{{$answer->UserId}}</h4>
-    </div>
-  </div>
-@endforeach
 
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Answer</div>
-
-                <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('question.store')}}">
-
-                  <textarea rows="10" name = "discription" class = "form-control" placeholder="Your answer"></textarea>
-                  <br>
-
-                <button id="ansButton" type="submit" class="btn btn-primary">Post</button>
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</div> --}}
 
 @stop
 

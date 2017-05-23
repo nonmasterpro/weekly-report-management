@@ -30,7 +30,7 @@
   <td>{{$user->name}}</td>
   <td> {{$user->email}}</td>
   <td>😙😙😙😙😙</td>
-  <td>{{$user->mentorId}}</td>
+  <td>{{$user->mentorid}}</td>
   <td>
     <form class = "" action="{{route('user.destroy',$user->id)}}" method="post">
     <input type ="hidden" name="_method" value="delete">

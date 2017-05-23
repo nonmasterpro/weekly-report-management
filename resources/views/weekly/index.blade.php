@@ -25,28 +25,21 @@
 </tr>
 
 
-@foreach($questions as $question)
+@foreach($weeklys as $weekly)
 <tr>
-  <td><a href="{{route('question.show',$question->id)}}">{{$question->username}}</a></td>
-  <td> {{$question->title}}</td>
-  <td>{{$question->Qcoin}}</td>
+  <td><a href="{{route('weekly.show',$weekly->id)}}">{{$weekly->username}}</a></td>
+  <td> {{$weekly->title}}</td>
+  <td>{{$weekly->Qcoin}}</td>
   <td>
-    @if($question->status==1)
+    @if($weekly->status==1)
     <span id="span1">Pending</span>
-    @elseif($question->status==2)
+    @elseif($weekly->status==2)
     <span id="span2">Approve</span>
-    @elseif($question->status==3)
+    @elseif($weekly->status==3)
     <span id="span3">Reject</span>
     @endif
   </td>
-  <!-- <td>
-<form class = "" action="{{route('question.destroy',$question->id)}}" method="post">
-  <input type ="hidden" name="_method" value="delete">
-  <input type ="hidden" name="_token" value="{{ csrf_token() }}">
-  <a href="{{route('question.edit',$question->id)}}">Edit</a>
-  <input type="submit" class = "btn btn-danger" onclick="return confirm('sour')" name="name" value="delete">
-</form>
-  </td> -->
+
 </tr>
 @endforeach
 </table>
