@@ -27,16 +27,16 @@
 
 @foreach($weeklys as $weekly)
 <tr>
-  <td><a href="{{route('weekly.show',$weekly->id)}}">{{$weekly->username}}</a></td>
+  <td>{{$weekly->username}}</td>
   <td> {{$weekly->title}}</td>
   <td>{{$weekly->Qcoin}}</td>
   <td>
     @if($weekly->status==1)
-    <span id="span1">Pending</span>
+    <span id="span1">Pending</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
     @elseif($weekly->status==2)
-    <span id="span2">Approve</span>
+    <span id="span2">Approve</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
     @elseif($weekly->status==3)
-    <span id="span3">Reject</span>
+    <span id="span3">Reject</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
     @endif
   </td>
 
@@ -63,6 +63,12 @@
 #span3 {
   padding: 5 5 5 5;
   background-color: rgb(236, 63, 89);
+  color: white;
+  border-style: double;
+}
+#span4 {
+  padding: 5 5 5 5;
+  background-color: rgb(26, 46, 226);
   color: white;
   border-style: double;
 }
