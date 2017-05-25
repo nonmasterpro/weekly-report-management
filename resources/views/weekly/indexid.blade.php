@@ -15,11 +15,11 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </h3>
 <table class="table table-striped">
 <tr>
-<th>Date</th>
+<th class="dateCol" >Date</th>
 <th>Remark</th>
 <th>Mentor ID</th>
-<th>Action</th>
 <th>Status</th>
+<th class="actionCol">Action</th>
 </tr>
 
 @foreach($weeklys as $weekly)
@@ -27,27 +27,33 @@ class="btn btn-info" type="button" name="button"> Back </button>
   <td>{{$weekly->title}}</td>
   <td>{{$weekly->Qcoin}}</td>
   <td>{{$weekly->mentorid}}</td>
+
+  <td>
+  @if($weekly->status==1)
+  <span id="span1">Pending</span>
+  <!-- <button class="btn btn-xs btn-success" type="button" name="button">Pending</button> -->
+  @elseif($weekly->status==2)
+  <span id="span2">Approve</span>
+  @elseif($weekly->status==3)
+  <span id="span3">Reject</span>
+  @endif
+  </td>
+
   <td>
     <form class = "" action="{{route('weekly.destroy',$weekly->id)}}" method="post">
     <input type ="hidden" name="_method" value="delete">
     <input type ="hidden" name="_token" value="{{ csrf_token() }}">
     @if($weekly->status==1||$weekly->status==3)
-    <a href="{{route('weekly.edit',$weekly->id)}}" class="btn btn-primary">Edit</a>
-    <input type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="delete">
+    <a href="{{route('weekly.show',$weekly->id)}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
+    <a href="{{route('weekly.edit',$weekly->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+    <button type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
     @else
-    <h1 id="yimyim">😁😚😁</h1>
+    <!-- <h1 id="yimyim">😁😚😁</h1> -->
+    <a href="{{route('weekly.show',$weekly->id)}}" class="btn btn-info" > <span ><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
     @endif
   </form>
   </td>
-  <td>
-  @if($weekly->status==1)
-  <span id="span1">Pending</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
-  @elseif($weekly->status==2)
-  <span id="span2">Approve</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
-  @elseif($weekly->status==3)
-  <span id="span3">Reject</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span href="#" id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
-  @endif
-  </td>
+
 </tr>
 @endforeach
 </table>

@@ -19,8 +19,8 @@
 <th>Email</th>
 <th>Password</th>
 <th>Mentor ID</th>
-<th>Action</th>
 <th>Status</th>
+<th class="actionCol">Action</th>
 </tr>
 
 
@@ -32,14 +32,6 @@
   <td>😙😙😙😙😙</td>
   <td>{{$user->mentorid}}</td>
   <td>
-    <form class = "" action="{{route('user.destroy',$user->id)}}" method="post">
-    <input type ="hidden" name="_method" value="delete">
-    <input type ="hidden" name="_token" value="{{ csrf_token() }}">
-    <a href="{{route('user.edit',$user->id)}}" class="btn btn-primary">Edit</a>
-    <input type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="delete">
-  </form>
-  </td>
-  <td>
   @if($user->role==1)
   <span id="span1">User</span>
   @elseif($user->role==2)
@@ -48,6 +40,15 @@
   <span id="span3">Admin</span>
   @endif
   </td>
+  <td>
+    <form class = "" action="{{route('user.destroy',$user->id)}}" method="post">
+    <input type ="hidden" name="_method" value="delete">
+    <input type ="hidden" name="_token" value="{{ csrf_token() }}">
+    <a href="{{route('user.edit',$user->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+    <button type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+  </form>
+  </td>
+
 </tr>
 
 @endforeach

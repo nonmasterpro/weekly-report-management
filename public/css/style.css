@@ -16,23 +16,27 @@
   font-size: 15px;
 }
 #span1 {
-  padding: 5 5 5 5;
+  padding: 3 3 3 3;
   background-color: rgb(57, 151, 191);
   color: white;
   border-style: double;
-
+  font-size: 10px;
 }
 #span2 {
-  padding: 5 5 5 5;
+  padding: 3 3 3 3;
   background-color: rgb(5, 207, 86);
   color: white;
   border-style: double;
+  font-size: 10px;
+
 }
 #span3 {
-  padding: 5 5 5 5;
+  padding: 3 3 3 3;
   background-color: rgb(236, 63, 89);
   color: white;
   border-style: double;
+  font-size: 10px;
+
 }
 #span4 {
   padding: 5 5 5 5;
@@ -178,4 +182,7 @@
 }
 #selectRole{
   margin-bottom: 15px;
+}
+.actionCol:last-child{
+  width: 300px;
 }

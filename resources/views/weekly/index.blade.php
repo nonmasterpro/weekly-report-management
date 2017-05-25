@@ -22,6 +22,8 @@
 <th>Date</th>
 <th>Remark</th>
 <th>Status</th>
+<th>Action</th>
+
 </tr>
 
 
@@ -32,12 +34,16 @@
   <td>{{$weekly->Qcoin}}</td>
   <td>
     @if($weekly->status==1)
-    <span id="span1">Pending</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
+    <span id="span1">Pending</span>
     @elseif($weekly->status==2)
-    <span id="span2">Approve</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
+    <span id="span2">Approve</span>
     @elseif($weekly->status==3)
-    <span id="span3">Reject</span> <a href="{{route('weekly.show',$weekly->id)}}" > <span id="span4"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
+    <span id="span3">Reject</span> 
     @endif
+  </td>
+
+  <td>
+    <a href="{{route('weekly.show',$weekly->id)}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
   </td>
 
 </tr>
@@ -48,5 +54,5 @@
 
 <style media="screen">
 
-  
+
 </style>
