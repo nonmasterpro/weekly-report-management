@@ -39,20 +39,5 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </div>
 @endsection
 <style media="screen">
-#selectRole{
-  margin-bottom: 15px;
-}
-#myButton{
-  float: right;
-  margin-right: 80px;
-  margin-bottom: 10px;
-}
-#myButton1{
-  float: right;
-  margin-right: 80px;
-  margin-bottom: 10px;
-}
-#PP{
-  color: rgb(116, 115, 117);
-}
+
 </style>

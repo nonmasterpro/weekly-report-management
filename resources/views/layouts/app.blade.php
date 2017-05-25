@@ -34,20 +34,12 @@
     <div id="app">
       <div >
         <nav id="topbar" class="navbar navbar-default navbar-static-top topbarr aaaaa">
-            <div class="container">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
                     <!-- Branding Image -->
                     <a id="aa"class="navbar-brand topbarr" href="{{ url('/home') }}">
-                        Weekly Report & Time Stamp
+                        Weekly Report
                     </a>
                 </div>
 

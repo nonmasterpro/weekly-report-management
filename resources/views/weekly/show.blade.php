@@ -3,10 +3,10 @@
 @section('content')
 
 @if($user->role==1)
-<button id="myButton" onclick="window.location.href='/weekly/user'"
+<button id="myButton11" onclick="window.location.href='/weekly/user'"
 class="btn btn-info" type="button" name="button"> Back </button>
 @else
-<button id="myButton" onclick="window.location.href='/weekly'"
+<button id="myButton11" onclick="window.location.href='/weekly'"
 class="btn btn-info" type="button" name="button"> Back </button>
 @endif
 
@@ -35,21 +35,18 @@ class="btn btn-info" type="button" name="button"> Back </button>
   <div class="butt" id="butt">
 
     <form action="{{ URL('weekly/'.$weeklys->id.'/reject')}}" method="get" >
-        <button id="myButton2" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')">Reject</button>
+        <button id="myButton22" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')">Reject</button>
     </form>
 
   <form action="{{ URL('weekly/'.$weeklys->id.'/approve')}}" method="get" >
-      <button id="myButton3" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
+      <button id="myButton33" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
   </form>
 
 
 
 
 
-    {{-- <button id="myButton" onclick="updateStatus()"
-    class="btn btn-danger" type="button" name="button"> Reject </button>
-    <button id="myButton" onclick="updateStatus()"
-    class="btn btn-success appp" type="button" name="button"> Approve </button> --}}
+
 
   </div>
 @endif
@@ -67,83 +64,6 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 
 <style media="screen">
-.butt{
-  margin-right: -20px;
-}
 
-#ansButton{
-  float: right;
-  padding-right: 20px;
-}
-
-#reButton{
-  float: right;
-  margin-right: 110px;
-
-}
-
-#nameU{
-  float: right;
-  padding-right: 20px;
-  padding-top: 120px;
-
-}
-
-#listQ{
-  padding: 20px 100px;
-  /*margin-left: 20px;*/
-
-}
-#listH3{
-  margin-left: 90px;
-
-}
-#hr{
-  border: solid 1px white;
-  width: 950px;
-}
-#titleQ{
-  /*text-align: center;*/
-  padding-left: 50px;
-  color: white;
-}
-#desQ{
-  padding-left: 80px;
-  color: white;
-
-
-}
-#questionbox{
-  border: 1px solid;
-  width: 1000px;
-  height: 280px;
-  margin:0 auto;
-  background-color: gray;
-}
-
-#answerbox{
-  border: 1px solid;
-  width: 1000px;
-  height: 280px;
-  margin:0 auto;
-  background-color: #B5B5B5;
-}
-
-
-#myButton{
-  float: right;
-  margin-right: 50px;
-  margin-bottom: 10px;
-}
-#myButton2{
-  position: absolute;
-  right: 235px;
-  top: 385px;
-}
-#myButton3{
-  position: absolute;
-  right: 310px;
-  top: 385px;
-}
 
 </style>

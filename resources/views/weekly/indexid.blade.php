@@ -57,47 +57,12 @@ class="btn btn-info" type="button" name="button"> Back </button>
 @stop
 
 <style media="screen">
-#span1 {
-  padding: 5 5 5 5;
-  background-color: rgb(57, 151, 191);
-  color: white;
-  border-style: double;
 
-}
-#span2 {
-  padding: 5 5 5 5;
-  background-color: rgb(5, 207, 86);
-  color: white;
-  border-style: double;
-}
-#span3 {
-  padding: 5 5 5 5;
-  background-color: rgb(236, 63, 89);
-  color: white;
-  border-style: double;
-}
-#span4 {
-  padding: 5 5 5 5;
-  background-color: rgb(26, 46, 226);
-  color: white;
-  border-style: double;
-}
-#listQ{
-  padding: 20px 100px;
-}
 #myButton{
   float: right;
   margin-right: 50px;
   margin-bottom: 10px;
 }
-#myButton1{
-  float: right;
-  margin-right: 80px;
-  margin-bottom: 10px;
-}
-#yimyim{
-  margin-top: -5px;
-  margin-bottom: -5px;
 
-}
+
 </style>

@@ -56,60 +56,6 @@
 @stop
 
 <style media="screen">
-#span1 {
-  padding: 5 5 5 5;
-  background-color: rgb(57, 151, 191);
-  color: white;
-  border-style: double;
 
-}
-#span2 {
-  padding: 5 5 5 5;
-  background-color: rgb(5, 207, 86);
-  color: white;
-  border-style: double;
-}
-#span3 {
-  padding: 5 5 5 5;
-  background-color: rgb(236, 63, 89);
-  color: white;
-  border-style: double;
-}
-  #listQ{
-    padding: 20px 100px;
-  }
-  #askButton{
-    float: right;
-    margin-right: 50px;
-    margin-bottom: 10px;
-  }
-  #myButton{
-    float: right;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  #myButton1{
-    float: right;
-    margin-right: 80px;
-    margin-bottom: 10px;
-  }
-  #span1 {
-    padding: 5 5 5 5;
-    background-color: rgb(57, 151, 191);
-    color: white;
-    border-style: double;
 
-  }
-  #span2 {
-    padding: 5 5 5 5;
-    background-color: rgb(5, 207, 86);
-    color: white;
-    border-style: double;
-  }
-  #span3 {
-    padding: 5 5 5 5;
-    background-color: rgb(236, 63, 89);
-    color: white;
-    border-style: double;
-  }
 </style>

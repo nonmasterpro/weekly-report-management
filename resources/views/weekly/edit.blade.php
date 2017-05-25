@@ -33,15 +33,6 @@ class="btn btn-info" type="button" name="button"> Back </button>
                             @endforeach
                           </select><br /><br />
 
-                        {{--   <input type="text" name="mentorid" list="colors" autocomplete="off" required>
-                          <datalist id="colors">
-                            @foreach ($users as $u)
-                              @if($u->mentorid!=1 && $u->mentorid!=99)
-                              <option value="{{$u->mentorid}}">{{$u->name}}, {{$u->mentorid}}</option>
-                              @endif
-                            @endforeach
-                          </datalist> --}}
-
                   <p>Remark </p>
                       <input type= "text" class = "form-control" name="Qcoin" value="{{$weekly->Qcoin}}" required><br>
 
@@ -59,28 +50,9 @@ class="btn btn-info" type="button" name="button"> Back </button>
     });
 </script>
 
-    {{--  <script>
-      function validateForm() {
-          var x = document.forms["aa"]["mentorid"].value;
-          @foreach($users as $u)
-          if (x !== $u->mentorid) {
-              alert("Mentor ID doesn't have");
-              return false;
-          }
-          @endforeach
-      }
-      </script> --}}
+
 @endsection
 <style media="screen">
 
-#myButton{
-  float: right;
-  margin-right: 80px;
-  margin-bottom: 10px;
-}
-#myButton1{
-  float: right;
-  margin-right: 80px;
-  margin-bottom: 10px;
-}
+
 </style>
