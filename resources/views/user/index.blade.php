@@ -18,8 +18,8 @@
 <th>Name</th>
 <th>Email</th>
 <th>Password</th>
-<th>Mentor ID</th>
-<th>Status</th>
+<th>Mentor</th>
+<th>Role</th>
 <th class="actionCol">Action</th>
 </tr>
 
@@ -30,7 +30,15 @@
   <td>{{$user->name}}</td>
   <td> {{$user->email}}</td>
   <td>😙😙😙😙😙</td>
+
+  @if($user->role==1)
   <td>{{$user->mentorid}}</td>
+  @elseif($user->role==2 || $user->role==3)
+  <td> - </td>
+  @else
+  <td> - </td>
+  @endif
+
   <td>
   @if($user->role==1)
   <span id="span1">User</span>

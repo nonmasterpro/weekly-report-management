@@ -26,8 +26,8 @@ class="btn btn-info" type="button" name="button"> Back </button>
                         <option value="2">Mentor</option>
                         <option value="3">Admin</option>
                       </select>
-                      <p>Mentor ID </p>
-                        <input style="width:150px" type= "text" class = "form-control" name="mentorid" value = "" required><p id="PP"> ***Default user is 1</p><br>
+                  {{--    <p>Mentor ID </p>
+                        <input style="width:150px" type= "text" class = "form-control" name="mentorid" value = "" required><p id="PP"> ***Default user is 1</p><br> --}}
                   <p>Password </p>
                   <input style="width:250px" type= "password" class = "form-control" name="password" required><br>
 

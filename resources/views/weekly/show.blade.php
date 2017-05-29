@@ -42,18 +42,55 @@ class="btn btn-info" type="button" name="button"> Back </button>
       <button id="myButton33" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
   </form>
 
-
-
-
-
-
-
   </div>
+@endif
+
+@if($weeklys->status==2)
+
+<form action="{{ URL('weekly/print')}}" method="get" >
+    <button id="myButton33" type="submit" class = "btn btn-info">Print Preview</button>
+</form>
 @endif
 
   </div>
 
+@if($weeklys->comment!='null')
+  <h3 id="listH3">Comment</h3>
+  <div id="questionbox" class="panel panel-default">
 
+      <div class = "panel-body">
+
+        <div id="titleQ" class="">
+          <h3>{{$user->name}}</h3>
+
+        </div><hr id="hr">
+
+        <div id="desQ" class="">
+
+          <h5> - {{$weeklys->comment}}</h5>
+
+        </div>
+
+
+      </div>
+  </div>
+@endif
+
+@if($user->role==2)
+
+  <div id="commentbox" class="panel panel-default">
+      <div class="panel-heading">Comment</div>
+      <div class = "panel-body">
+
+      <form action = "{{URL('weekly/'.$weeklys->id.'/comment')}}" method = "get" >
+        <textarea rows="10" name = "comment" class = "form-control"  required></textarea><br>
+        <button type="submit" class="btn btn-primary buttonComment">Submit</button>
+      </form>
+
+      </div>
+  </div>
+
+@endif
 
 
 

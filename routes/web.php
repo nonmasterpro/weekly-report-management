@@ -39,7 +39,7 @@ Route::get('/home', 'HomeController@index');
   // Route::resource('question', 'QuestionController') ;
   // Route::get('weekly/{id}/approve','QuestionController@updatestatusA');
   // Route::get('weekly/{id}/reject','QuestionController@updatestatusR');
-        // Uses Auth Middleware
+  // Uses Auth Middleware
 
   Route::resource('user', 'UserController') ;
 
@@ -48,8 +48,10 @@ Route::get('/home', 'HomeController@index');
   Route::get('weekly/user', 'WeeklyController@indexid');
   Route::get('weekly/{id}/approve','WeeklyController@updatestatusA');
   Route::get('weekly/{id}/reject','WeeklyController@updatestatusR');
+  Route::get('weekly/print', 'WeeklyController@printReport');
+  Route::get('weekly/{id}/comment','WeeklyController@updateComment');
   Route::resource('weekly', 'WeeklyController');
-  
+
 
 });
 

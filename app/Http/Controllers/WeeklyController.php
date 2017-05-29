@@ -19,10 +19,11 @@ class WeeklyController extends Controller
     {
       $User = Auth::user();
       $ids = $User->mentorid;
+      $name = $User->name;
 
-      $ids = explode(",", $ids);
+      $name = explode(",", $name);
       $question = array();
-      foreach($ids as $id) {
+      foreach($name as $id) {
       $q = weekly::where('mentorid', $id)->get();
           // if(!is_null($q['questions'])) {
               // $question = array_merge($question, $q['questions']->toArray());
@@ -112,7 +113,7 @@ class WeeklyController extends Controller
         $questions->userId = $id;
         $questions->status = $Status;
         $questions->mentorid = $mentorid;
-
+        $questions->comment = "null";
 
         // $User->coin = $result;
 
@@ -121,6 +122,8 @@ class WeeklyController extends Controller
 
         return redirect('weekly/user');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -155,10 +158,11 @@ class WeeklyController extends Controller
     {
             $weekly = weekly::findOrFail($id);
             $user = user::all();
+            $User = Auth::user();
 
 
 
-        return view('weekly.edit', compact('weekly'), ['users'=>$user]);
+        return view('weekly.edit', compact('weekly'), ['user'=>$User], ['users'=>$user]);
     }
 
     /**
@@ -192,6 +196,16 @@ class WeeklyController extends Controller
           // return view('question.indexid');
 
           return redirect('weekly/user')->with('alert-success','Data Hasbeen Saved');
+    }
+
+    public function updateComment(Request $request, $id)
+    {
+      $comments = $request -> comment;
+      $question = weekly::findOrFail($id);
+      $question->comment = $comments;
+      $question->save();
+      return redirect('weekly/'.$id);
+
     }
 
     /**
@@ -238,6 +252,25 @@ class WeeklyController extends Controller
         // dd($question);
 
         return redirect('weekly');
+
+    }
+
+    public function printReport()
+    {
+
+        // $ids = Auth::id();
+        $User = Auth::user();
+        // $ids = explode(",", $ids);
+        // $question = array();
+        // foreach($ids as $id) {
+        // $q = weekly::where('userId', $id)->get();
+        //     // if(!is_null($q['questions'])) {
+        //         // $question = array_merge($question, $q['questions']->toArray());
+        //     // }
+        // }
+
+        return view('weekly.print',['user' => $User]);
+
 
     }
 }

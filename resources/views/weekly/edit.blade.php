@@ -24,14 +24,16 @@ class="btn btn-info" type="button" name="button"> Back </button>
                         <textarea rows="10" name = "discription" class = "form-control" value = "{{$weekly->discription}}" required>{{$weekly->discription}}</textarea><br>
                     </div>
 
-                  <p>Mentor ID</p>
-                        <select class="selectpicker" name="mentorid" id="menterid">
-                            @foreach ($users as $u)
-                              @if($u->mentorid!=1 && $u->mentorid!=99)
-                              <option value="{{$u->mentorid}}">{{$u->name}}, {{$u->mentorid}}</option>
-                              @endif
-                            @endforeach
-                          </select><br /><br />
+                  <!-- <p>Mentor</p> -->
+                  <input name="mentorid" type="hidden" class="form-control" name="role" value="{{$user->mentorid}}" required autofocus>
+
+                      {{--  <select class="selectpicker" name="mentorid" id="menterid">
+                          @foreach ($users as $u)
+                            @if($u->role!=1 && $u->role!=3)
+                            <option value="{{$u->name}}">{{$u->name}}</option>
+                            @endif
+                          @endforeach
+                        </select><br /><br /> --}}
 
                   <p>Remark </p>
                       <input type= "text" class = "form-control" name="Qcoin" value="{{$weekly->Qcoin}}" required><br>

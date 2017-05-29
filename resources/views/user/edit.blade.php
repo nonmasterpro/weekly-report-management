@@ -28,9 +28,23 @@ class="btn btn-info" type="button" name="button"> Back </button>
                         <option value="3">Admin</option>
                       </select><br /><br />
 
-                      <p>Mentor ID </p>
-                        <input style="width:150px" type= "text" class = "form-control" name="mentorid" value = "{{$user->mentorid}}" required><p id="PP"> ***Default user is 1</p><br>
-
+                      @if($user->role==1)
+                      <p>Mentor</p>
+                        <!-- <input style="width:150px" type= "text" class = "form-control" name="mentorid" value = "{{$user->mentorid}}" required><p id="PP"> ***Default user is 1</p><br> -->
+                        <select class="selectpicker" name="mentorid" id="mentorid">
+                            @foreach ($users as $u)
+                              @if($u->role!=1 && $u->role!=3)
+                              <option value="{{$u->name}}">{{$u->name}}</option>
+                              @endif
+                            @endforeach
+                          </select><br /><br />
+                      @elseif($user->role==2)
+                      <input style="width:150px" type= "hidden" class = "form-control" name="mentorid" value = "Mentor" required>
+                      @elseif($user->role==3)
+                      <input style="width:150px" type= "hidden" class = "form-control" name="mentorid" value = "Admin" required>
+                      @else
+                      <input style="width:150px" type= "hidden" class = "form-control" name="mentorid" value = "Null" required>
+                      @endif
 
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -43,6 +57,13 @@ class="btn btn-info" type="button" name="button"> Back </button>
   var id = '<?php echo($user->role); ?>';
     $(document).ready(function() {
       $('#userrole').val(id);
+    });
+</script>
+
+<script type="text/javascript">
+  var idd = '<?php echo($user->mentorid); ?>';
+    $(document).ready(function() {
+      $('#mentorid').val(idd);
     });
 </script>
 

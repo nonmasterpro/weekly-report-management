@@ -17,7 +17,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 <tr>
 <th class="dateCol" >Date</th>
 <th>Remark</th>
-<th>Mentor ID</th>
+<th>Mentor</th>
 <th>Status</th>
 <th class="actionCol">Action</th>
 </tr>

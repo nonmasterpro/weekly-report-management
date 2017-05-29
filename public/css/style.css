@@ -146,6 +146,15 @@
   height: 280px;
   margin:0 auto;
   background-color: gray;
+  margin-bottom: 10px;
+}
+
+#commentbox{
+  border: 1px solid;
+  width: 1000px;
+  height: 340px;
+  margin:0 auto;
+  background-color: gray;
 }
 
 #answerbox{
@@ -185,4 +194,8 @@
 }
 .actionCol:last-child{
   width: 300px;
+}
+
+.buttonComment{
+  float: right;
 }
