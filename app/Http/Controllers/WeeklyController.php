@@ -258,18 +258,20 @@ class WeeklyController extends Controller
     public function printReport()
     {
 
-        // $ids = Auth::id();
-        $User = Auth::user();
-        // $ids = explode(",", $ids);
-        // $question = array();
-        // foreach($ids as $id) {
-        // $q = weekly::where('userId', $id)->get();
-        //     // if(!is_null($q['questions'])) {
-        //         // $question = array_merge($question, $q['questions']->toArray());
-        //     // }
-        // }
 
-        return view('weekly.print',['user' => $User]);
+        $User = Auth::user();
+
+        $ids = Auth::id();
+        $ids = explode(",", $ids);
+        $question = array();
+        foreach($ids as $id) {
+        $q = weekly::where('userId', $id)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+
+        return view('weekly.print',['weeklys' => $q],['user' => $User]);
 
 
     }
