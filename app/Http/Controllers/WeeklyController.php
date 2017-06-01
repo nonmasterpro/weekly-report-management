@@ -17,6 +17,8 @@ class WeeklyController extends Controller
      */
     public function index()
     {
+
+    /////////////
       $User = Auth::user();
       $ids = $User->mentorid;
       $name = $User->name;
@@ -25,11 +27,11 @@ class WeeklyController extends Controller
       $question = array();
       foreach($name as $id) {
       $q = weekly::where('mentorid', $id)->get();
-          // if(!is_null($q['questions'])) {
-              // $question = array_merge($question, $q['questions']->toArray());
-          // }
+        
       }
       return view('weekly.index', ['weeklys' => $q], ['user' => $User]);
+
+      ////////////
 
         // $question = Question::all();
         //
@@ -53,6 +55,18 @@ class WeeklyController extends Controller
         }
         return view('weekly.indexid', ['weeklys' => $q], ['user' => $User]);
 
+    }
+
+    public function weeklyday($id){
+
+        $User = Auth::user();
+        $id = explode(",", $id);
+        foreach($id as $ids) {
+        $q = weekly::where('week', $ids)->get();
+            
+        }
+
+        return view('weekly.weeklyday',['reports' => $q],['user' => $User]);
     }
 
     /**
@@ -92,6 +106,8 @@ class WeeklyController extends Controller
         $UserQIds = $request -> username;
         $Status = $request -> status;
         $mentorid = $request -> mentorid;
+        $week = $request -> week;
+
 
 
         // $userCoin= Auth::user()->coin;
@@ -113,6 +129,7 @@ class WeeklyController extends Controller
         $questions->userId = $id;
         $questions->status = $Status;
         $questions->mentorid = $mentorid;
+        $questions->week = $week;
         $questions->comment = "null";
 
         // $User->coin = $result;
@@ -180,6 +197,8 @@ class WeeklyController extends Controller
           $Qcoins = $request -> Qcoin;
           $UserQIds = $request -> UserQId;
           $mentorid = $request -> mentorid;
+          $week = $request -> week;
+
 
           // $idu = Auth::id();
 
@@ -189,6 +208,7 @@ class WeeklyController extends Controller
           $question->discription = $discriptions;
           $question->Qcoin = $Qcoins;
           $question->mentorid = $mentorid;
+          $question->week = $week;
           $question->status = 1;
           // $question->UserQId = $idu;
           $question->save();
@@ -219,7 +239,7 @@ class WeeklyController extends Controller
         //
         $questions = weekly::findOrFail($id);
         $questions->delete();
-        return redirect('weekly/user')->with('alert-success','Data Hasbeen Saved');
+        return redirect('weekly/'.$questions->week.'/day')->with('alert-success','Data Hasbeen Saved');
 
     }
     /**
@@ -255,23 +275,39 @@ class WeeklyController extends Controller
 
     }
 
-    public function printReport()
+    public function printReport($id)
     {
 
 
         $User = Auth::user();
+        $aa="$id";
 
         $ids = Auth::id();
         $ids = explode(",", $ids);
         $question = array();
-        foreach($ids as $id) {
-        $q = weekly::where('userId', $id)->get();
+
+        $id = explode(",", $id);
+
+
+        foreach($ids as $idd) {
+        $q = weekly::where('userId', $idd)->get();
             // if(!is_null($q['questions'])) {
                 // $question = array_merge($question, $q['questions']->toArray());
             // }
         }
 
-        return view('weekly.print',['weeklys' => $q],['user' => $User]);
+         foreach($id as $ide) {
+        $a = weekly::where('week', $ide)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+
+        // $data['weeklys'] = $a;
+        // $data['user'] = $User;
+        // $data['asd']   =$aa;
+
+        return view('weekly.print',['weeklys' => $a,'user' => $User,'asd' => $aa]);
 
 
     }

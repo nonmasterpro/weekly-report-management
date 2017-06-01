@@ -193,7 +193,11 @@
   margin-bottom: 15px;
 }
 .actionCol:last-child{
-  width: 300px;
+  /*width: 250px;*/
+}
+.dateCol:first:child{
+  /*width: 300px;*/
+
 }
 
 .buttonComment{

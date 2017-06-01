@@ -3,8 +3,9 @@
 @section('content')
 
 @if($user->role==1)
-<button id="myButton11" onclick="window.location.href='/weekly/user'"
-class="btn btn-info" type="button" name="button"> Back </button>
+    <form action="{{ URL('weekly/'.$weeklys->week.'/day')}}">
+<button id="myButton11" class="btn btn-info" type="submit"> Back </button>
+    </form>
 @else
 <button id="myButton11" onclick="window.location.href='/weekly'"
 class="btn btn-info" type="button" name="button"> Back </button>
@@ -23,11 +24,11 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
   <div id="desQ" class="">
     <h4>Work Detail</h4>
-    <h5> - {{$weeklys->discription}}</h5>
+    <h5 style="margin-left: 30px;">{{$weeklys->discription}}</h5>
     <br>
 
     <h4>Remark</h4>
-    <h5> - {{$weeklys->Qcoin}}</h5>
+    <h5 style="margin-left: 30px;">{{$weeklys->Qcoin}}</h5>
 
   </div>
 
@@ -45,12 +46,12 @@ class="btn btn-info" type="button" name="button"> Back </button>
   </div>
 @endif
 
-@if($weeklys->status==2)
+{{-- @if($weeklys->status==2)
 
 <form action="{{ URL('weekly/print')}}" method="get" >
     <button id="myButton33" type="submit" class = "btn btn-info">Print Preview</button>
 </form>
-@endif
+@endif --}}
 
   </div>
 

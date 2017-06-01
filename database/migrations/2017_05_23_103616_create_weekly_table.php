@@ -21,6 +21,7 @@ class CreateWeeklyTable extends Migration
           $table->string('username');
           $table->integer('userId');
           $table->integer('status');
+          $table->integer('week');
           $table->string('mentorid');
           $table->string('comment')->default(null);
           $table->timestamps();

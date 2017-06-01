@@ -15,47 +15,53 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </h3>
 <table class="table table-striped">
 <tr>
-<th class="dateCol" >Date</th>
-<th>Remark</th>
+<th class="dateCol">#</th>
+{{-- <th class="dateCol" >Date</th> --}}
+<th>Week</th>
+{{-- <th>Remark</th>
 <th>Mentor</th>
-<th>Status</th>
+<th>Status</th> --}}
 <th class="actionCol">Action</th>
 </tr>
 
-@foreach($weeklys as $weekly)
+
+{{-- {{dd($weeklys)}} --}}
+
+                                
+
+
+{{-- @foreach($weeklys as $key => $weekly) --}}
+@for ($i = 1; $i <= $user->week; $i++)
 <tr>
-  <td>{{$weekly->title}}</td>
-  <td>{{$weekly->Qcoin}}</td>
+  <td>{{$i}}</td>
+  {{-- <td>{{$weekly->title}}</td> --}}
+  <td>Week {{$i}}</td>
+  {{-- <td>{{$weekly->Qcoin}}</td>
   <td>{{$weekly->mentorid}}</td>
 
   <td>
   @if($weekly->status==1)
   <span id="span1">Pending</span>
-  <!-- <button class="btn btn-xs btn-success" type="button" name="button">Pending</button> -->
   @elseif($weekly->status==2)
   <span id="span2">Approve</span>
   @elseif($weekly->status==3)
   <span id="span3">Reject</span>
   @endif
-  </td>
+  </td> --}}
 
   <td>
-    <form class = "" action="{{route('weekly.destroy',$weekly->id)}}" method="post">
+    <form class = "" action="{{URL('weekly/print')}}" method="get">
     <input type ="hidden" name="_method" value="delete">
     <input type ="hidden" name="_token" value="{{ csrf_token() }}">
-    @if($weekly->status==1||$weekly->status==3)
-    <a href="{{route('weekly.show',$weekly->id)}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
-    <a href="{{route('weekly.edit',$weekly->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-    <button type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-    @else
-    <!-- <h1 id="yimyim">😁😚😁</h1> -->
-    <a href="{{route('weekly.show',$weekly->id)}}" class="btn btn-info" > <span ><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></a>
-    @endif
+    <a href="{{URL('weekly/'.$i.'/day')}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
+    <a href="{{URL('weekly/'.$i.'/print')}}" class="btn btn-success"><i class="fa fa-print" aria-hidden="true"></i> Print Preview</a>
+
   </form>
   </td>
 
 </tr>
-@endforeach
+@endfor
+{{-- @endforeach --}}
 </table>
 </div>
 

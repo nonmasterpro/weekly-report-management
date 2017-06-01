@@ -20,7 +20,13 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <form class = "" method = "POST" action = "{{route('weekly.store')}}">
 
 
-
+                  <p>Week</p>
+                        <!-- <input style="width:150px" type= "text" class = "form-control" name="mentorid" value = "{{$user->mentorid}}" required><p id="PP"> ***Default user is 1</p><br> -->
+                        <select class="selectpicker" name="week" id="week">
+                            @for ($i = 1; $i <= $user->week; $i++)
+                                <option value="{{ $i }}">Week {{ $i }}</option>
+                            @endfor
+                          </select><br /><br />
 
                   <p>Date </p>
                   <input style="width:180px" type="date" data-date-format="DD MMMM YYYY" class = "form-control" name="title"  required><br>
@@ -33,7 +39,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
                   <!-- <p>Mentor </p> -->
                   <input name="mentorid" type="hidden" class="form-control" name="role" value="{{$user->mentorid}}" required autofocus>
-
+                  
 
                 {{--  <select class="selectpicker" name="mentorid" id="menterid">
                       @foreach ($users as $u)

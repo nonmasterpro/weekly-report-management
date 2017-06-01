@@ -15,8 +15,14 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <form class = "" method = "post" action = "{{route('user.update',$user->id)}}">
                   <input name="_method" type="hidden" value="PATCH">
 
-                  <p>Name </p>
+                  <p>First Name </p>
                   <input style="width:250px" type= "text" class = "form-control" name="name" value = "{{$user->name}}" required><br>
+
+                   <p>Last Name </p>
+                  <input style="width:250px" type= "text" class = "form-control" name="lastname" value = "{{$user->lastname}}" required><br>
+
+                   <p>Position </p>
+                  <input style="width:250px" type= "text" class = "form-control" name="position" value = "{{$user->position}}" required><br>
 
                   <p>Email </p>
                     <input style="width:250" type= "text" class = "form-control" name="email" value = "{{$user->email}}" required><br>
@@ -44,6 +50,13 @@ class="btn btn-info" type="button" name="button"> Back </button>
                       <input style="width:150px" type= "hidden" class = "form-control" name="mentorid" value = "Admin" required>
                       @else
                       <input style="width:150px" type= "hidden" class = "form-control" name="mentorid" value = "Null" required>
+                      @endif
+
+                      @if($user->role==1)
+                      <p>Week</p>
+
+                        <input style="width:250" type= "integer" class = "form-control" name="week" value = "{{$user->week}}" required><br>
+
                       @endif
 
                 <button type="submit" class="btn btn-primary">Edit</button>

@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -24,7 +24,20 @@
                             </div>
                         </div>
 
- 
+
+                            <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Last Name</label>
+                            <div class="col-md-6">
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('name') }}"  required autofocus>
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Position</label>
+                            <div class="col-md-6">
+                                <input id="position" type="text" class="form-control" name="position" value="{{ old('name') }}"  required autofocus>
+                            </div>
+                            </div>
                       {{--  <div class="form-group">
                          <label for="name" class="col-md-4 control-label">Coin</label>
                         <div class="col-md-6">

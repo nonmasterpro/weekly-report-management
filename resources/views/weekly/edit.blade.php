@@ -14,10 +14,18 @@ class="btn btn-info" type="button" name="button"> Back </button>
                 <div class = "panel-body">
                 <form class = "" onsubmit="return validateForm()" name="aa" method = "post" action = "{{route('weekly.update',$weekly->id)}}">
                   <input name="_method" type="hidden" value="PATCH">
-                  <div>
-                    <p>Date </p>
-                  <input style="width:180px" type= "date" class = "form-control" name="title"  value = "{{$weekly->title}}" required><br>
-                  </div>
+
+                  <p>Week</p>
+                        <!-- <input style="width:150px" type= "text" class = "form-control" name="mentorid" value = "{{$user->mentorid}}" required><p id="PP"> ***Default user is 1</p><br> -->
+                        <select class="selectpicker" name="week" id="week">
+                            @for ($i = 1; $i <= $user->week; $i++)
+                                <option value="{{ $i }}">Week {{ $i }}</option>
+                            @endfor
+                          </select><br /><br />
+
+
+                  <p>Date </p>
+                      <input style="width:180px" type= "date" class = "form-control" name="title"  value = "{{$weekly->title}}" required><br>
 
                   <p>Work Detail </p>
                     <div>  <!-- <input type= "text" class = "form-control" name="UserQId" placeholder="UserQId"><br> -->
@@ -46,9 +54,9 @@ class="btn btn-info" type="button" name="button"> Back </button>
 </div>
 
 <script type="text/javascript">
-  var id = '<?php echo($weekly->mentorid); ?>';
+  var id = '<?php echo($weekly->week); ?>';
     $(document).ready(function() {
-      $('#menterid').val(id);
+      $('#week').val(id);
     });
 </script>
 

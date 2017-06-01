@@ -30,8 +30,10 @@ class UserController extends Controller
     {
         //
         $User = Auth::user();
+        $Users = user::all();
 
-        return view('user.create', ['user' => $User]);
+
+        return view('user.create', ['user' => $User],['users' => $Users]);
     }
 
     /**
@@ -44,17 +46,21 @@ class UserController extends Controller
     {
         //
         $name = $request -> name;
+        $lastname = $request -> lastname;
         $email = $request -> email;
         $role = $request -> role;
         $mentorid = $request -> mentorid;
+        $week = $request -> week;
         $password = $request -> password;
 
         $user = new user;
 
         $user->name = $name;
+        $user->lastname = $lastname;
         $user->email = $email;
         $user->role = $role;
         $user->mentorid = $mentorid;
+        $user->week = $week;
         $user->password = bcrypt($password);
         // $question->UserQId = $idu;
         $user->save();
@@ -109,9 +115,13 @@ class UserController extends Controller
     {
         //
         $name = $request -> name;
+        $lastname = $request -> lastname;
         $email = $request -> email;
         $role = $request -> role;
         $mentorid = $request -> mentorid;
+        $week = $request -> week;
+
+
         // $password = $request -> password;
 
         // $idu = Auth::id();
@@ -119,9 +129,11 @@ class UserController extends Controller
         $user = user::findOrFail($id);
 
         $user->name = $name;
+        $user->lastname = $lastname;
         $user->email = $email;
         $user->role = $role;
         $user->mentorid = $mentorid;
+        $user->week = $week;
         // $user->password = $password;
         // $question->UserQId = $idu;
         $user->save();

@@ -15,10 +15,13 @@
 </h3>
 <table class="table table-striped">
 <tr>
-<th>Name</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Position</th>
 <th>Email</th>
 <th>Password</th>
 <th>Mentor</th>
+<th>Week</th>
 <th>Role</th>
 <th class="actionCol">Action</th>
 </tr>
@@ -28,11 +31,21 @@
 <tr>
   {{-- <td><a href="{{route('user.show',$user->id)}}">{{$user->name}}</a></td> --}}
   <td>{{$user->name}}</td>
+  <td>{{$user->lastname}}</td>
+  <td>{{$user->position}}</td>
   <td> {{$user->email}}</td>
   <td>😙😙😙😙😙</td>
 
   @if($user->role==1)
   <td>{{$user->mentorid}}</td>
+  @elseif($user->role==2 || $user->role==3)
+  <td> - </td>
+  @else
+  <td> - </td>
+  @endif
+
+  @if($user->role==1)
+  <td>{{$user->week}}</td>
   @elseif($user->role==2 || $user->role==3)
   <td> - </td>
   @else

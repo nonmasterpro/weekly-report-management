@@ -48,8 +48,9 @@ Route::get('/home', 'HomeController@index');
   Route::get('weekly/user', 'WeeklyController@indexid');
   Route::get('weekly/{id}/approve','WeeklyController@updatestatusA');
   Route::get('weekly/{id}/reject','WeeklyController@updatestatusR');
-  Route::get('weekly/print', 'WeeklyController@printReport');
+  Route::get('weekly/{id}/print', 'WeeklyController@printReport');
   Route::get('weekly/{id}/comment','WeeklyController@updateComment');
+  Route::get('weekly/{id}/day','WeeklyController@weeklyday');
   Route::resource('weekly', 'WeeklyController');
 
 

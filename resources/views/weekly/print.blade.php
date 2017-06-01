@@ -2,6 +2,8 @@
 
 @section('content')
 
+<button id="myButton1" onclick="window.location.href='/weekly/user'"
+class="btn btn-info" type="button" name="button"> Back </button>
 
 <div class="container">
     <div class="row">
@@ -12,46 +14,55 @@
                      Print Form
                   </button>
                 </div>
-
-
-
                 <form method="post" action="#" id="printJS-form">
-                  <h3 id="headd">Weekly Report</h3><br />
-                  <h5 style="font-weight: bold; margin-left:10px;display: inline;">Name :</h5>
-                  <h5 style="display: inline;">{{$user->name}}</h5><br>
-                  <h5 style="font-weight: bold; margin-left:10px;display: inline;">Company :</h5>
-                  <h5 style="display: inline;">Tecmove</h5><br>
-                  <h5 style="font-weight: bold; margin-left:10px;display: inline;">Position :</h5>
-                  <h5 style="display: inline;">Intern</h5><br><br>
+                  <img class="img" src="http://www.cmu.ac.th/data/image/layout/cmu_logo.png" alt="logo" height="70" width="70">
+                    <h6 class="coop">Cooperative Education</h6>
+                    <h6 class="coop2">Software Engineering Program</h6>
+                    <h6 class="coop3">College of Arts, Media and Technology, Chiang Mai University</h6>
+                  <hr class="hrr">
+                  <h6 style="float: right;font-weight: bold; margin-top: -10px;">SE-011</h6>
+                  <p id="headd">WEEKLY REPORT</p><br />
+                  <p id="subhead">Week {{$asd}}/{{$user->week}} </p><br>
+                  <h4 style="font-weight: bold; margin-left:5px;display: inline;">First Name :</h4>
+                  <p style="display: inline;">{{$user->name}}</p>
+                  <h4 style="font-weight: bold; margin-left:234px;display: inline;">Last Name :</h4>
+                  <p style="display: inline;">{{$user->lastname}}</p><br><br>
+                  <h4 style="font-weight: bold; margin-left:5px;display: inline;">Company :</h4>
+                  <p style="display: inline;">Tecmove</p>
+                  <h4 style="font-weight: bold; margin-left:254px;display: inline;">Position :</h4>
+                  <p style="display: inline;">{{$user->position}}</p><br><br>
 
-                  <table class="table table-striped">
-                  <tr>
-                  <th ><h5 style="font-weight: bold;float:left">YY/MM/DD</h5></th>
-                  <th><h5 style="font-weight: bold;float:left">Work Details</h5></th>
-                  <th ><h5 style="font-weight: bold;float:left">Remarks</h5></th>
+                  <table class="table table-striped tablee maintable">
+                  <tr class=" headtable">
+                  <td class="tablee aer"><p style="font-weight: normal;float:left;width: 90px!important;">YY/MM/DD</p></td>
+                  <td class="tablee aer"><p style="font-weight: normal; margin-left: 200px;">Work Details</p></td>
+                  <td class="tablee aer"><p style="font-weight: normal;float:left">Remarks</p></td>
                   </tr>
 
                   @foreach($weeklys as $weekly)
-
+                  @if($weekly->status==2)
                   <tr>
-                    <td>{{$weekly->title}}</td>
-                    <td>{{$weekly->discription}}</td>
-                    <td>{{$weekly->Qcoin}}</td>
+                    <td class="son"><span style="margin-left: 10px;">{{$weekly->title}}</span></td>
+                    <td class="son">{{$weekly->discription}}</td>
+                    <td class="son"><span >{{$weekly->Qcoin}}</span></td>
+
                   </tr>
+                  @endif
 
                   @endforeach
                   </table>
 
                   <div class="sign">
 
-                  <h5 id="S1" style="display: inline;">..................................................................</h5>
-                  <h5 id="Su1" style="display: inline;">..................................................................</h5><br>
+                  <p id="S1" style="display: inline;">..................................................................</p>
+                  <p id="Su1" style="display: inline;">..................................................................</p><br><br>
 
-                  <h5 id="S2" style="display: inline;">(..................................................................)</h5>
-                  <h5 id="Su2" style="display: inline;">(..................................................................)</h5><br>
+                  <p id="S2" style="display: inline;">(..................................................................)</p>
+                  <p id="Su2" style="display: inline;">(..................................................................)
+                  </p><br><br>
 
-                  <h5 id="S3" style="display: inline;">Student</h5>
-                  <h5 id="Su3" style="display: inline;">Supervisor</h5>
+                  <p id="S3" style="display: inline;">Student</p>
+                  <p id="Su3" style="display: inline;">Supervisor</p>
 
 
                 </div>
@@ -69,50 +80,92 @@
 @stop
 
 <style media="screen">
+.aer{
+  height: -50px;
+}
+.son{
+  border-right: solid 0.8px;
+}
 .sign{
-  margin-top: 80%;
+  margin-top: 40%;
   margin-left: 10px;
 }
+.tablee{
+  border-top: solid 2px!important;
+  border: solid 0.8px;
+  padding-top: 30%;
+}
 #headd{
-  margin-left: 42%;
+  margin-left: 41.5%;
+  font-size: 35px;
+}
+#subhead{
+  margin-left: 46%;
+  font-size: 20px;
+  
 }
 #S1{
-  /*margin-left: 10px;*/
-  margin-left: 2%;
+  margin-left: 10px;
+
 }
 #S2{
-  /*margin-left: 6px;*/
-  margin-left: 1.5%;
-
+  
+  margin-left: 6px;
+  
 }
 
 #S3{
-  /*margin-left: 100px;*/
-  margin-left: 15%;
+  margin-left: 124px;
+  
 
 }
-
-
 #Su1{
-  /*margin-left: 200px;*/
-  margin-left: 25%;
+  margin-left: 160px;
 
 }
 #Su2{
-  /*margin-left: 193px;*/
-  /*margin-left: 40%;*/
-  margin-left: 24%;
+  
+  margin-left: 149px;
 
 }
 
 #Su3{
-  /*margin-left: 370px;*/
-  /*margin-left: 50%;*/
-  margin-left: 49%;
+  
+  margin-left: 370px;
 
 
 }
+.headtable{
+  background: grey!important;
+}
+
+
 .printBtn{
   margin-left: 75%;
+}
+.maintable{
+
+}
+.hrr{
+  border: double;
+}
+.img{
+  margin-bottom: -15px;
+  margin-left: 5px;
+  margin-top: 5px;
+  display: inline;
+}
+.coop{
+  margin-left: 100px;
+  margin-top: -50px;
+}
+.coop2{
+  margin-left: 100px;
+  margin-top: -1px;
+}
+.coop3{
+  margin-left: 100px;
+  margin-top: -1px;
+
 }
 </style>
