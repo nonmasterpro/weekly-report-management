@@ -3,12 +3,12 @@
 @section('content')
 
 <button id="myButton1" onclick="window.location.href='/weekly/user'"
-class="btn btn-info" type="button" name="button"> Back </button>
+class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-default tttt">
                 <div class="panel-heading">Edit Report</div>
 
                 <div class = "panel-body">

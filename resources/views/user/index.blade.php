@@ -3,15 +3,15 @@
 @section('content')
 <div class="">
 
-  <button id="myButton1" onclick="window.location.href='/home'"
-  class="btn btn-info" type="button" name="button"> Back </button>
+  <button id="myButton1" onclick="window.location.href='/'"
+  class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 </div>
 
 <div id="listQ" class="row">
   <h3>User Management
     <button onclick="window.location.href='/user/create'"
-    class="btn btn-success adduserBut" type="button" name="button"> Add </button>
+    class="btn btn-success " type="button" name="button"> Add </button>
 </h3>
 <table class="table table-striped">
 <tr>

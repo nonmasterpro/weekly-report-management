@@ -20,6 +20,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://printjs-4de6.kxcdn.com/print.min.js" ></script>
 
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js" ></script>
+  <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+
 
 
     <!-- Scripts -->
@@ -32,14 +39,49 @@
     </script>
 </head>
 <body>
-    <div id="app">
+    <div id="wrapper">
+
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <div class="sidebar-brand text-center"> Tecmove</div>
+
+       @if (Auth::guest())
+        <span style="margin-left: 20px;">Hi Guest</span>
+       @elseif (Auth::user()->role==1)
+        <li>
+          <a class="current-parent current" href="/weekly/user" > <i class="fa fa-eye"></i> <span class="menu_title"> My Weekly Reports</span></a>
+        </li>
+        <li>
+          <a class="current-parent current" href="/weekly/create" > <i class="fa fa-calendar-plus-o"></i> <span class="menu_title"> Create Weekly Report</span></a>
+        </li>
+        @elseif (Auth::user()->role==2)
+        <li>
+          <a class="current-parent current" href="/weekly" > <i class="fa fa-eye"></i> <span class="menu_title"> Weekly Reports</span></a>
+        </li>
+        @elseif (Auth::user()->role==3)
+        <li>
+          <a class="current-parent current" href="/user" > <i class="fa fa-eye"></i> <span class="menu_title"> Users Management</span></a>
+        </li>
+        @endif
+
+       
+        
+
+      </ul>
+    </div>
+
       <div >
         <nav id="topbar" class="navbar navbar-default navbar-static-top topbarr aaaaa">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-12">
                 <div class="navbar-header">
 
+
+                    <a style="color: white;" class="navbar-brand" href="#menu-toggle" id="menu-toggle">
+                    <span class="fa fa-align-justify" aria-hidden="true"></span></a>
+
+
                     <!-- Branding Image -->
-                    <a id="aa"class="navbar-brand topbarr" href="{{ url('/home') }}">
+                    <a id="aa"class="navbar-brand topbarr" href="{{ url('/') }}">
                         Weekly Report
                     </a>
                 </div>
@@ -53,28 +95,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul  class="nav navbar-nav navbar-right topbarr">
                         <!-- Authentication Links -->
+                        <li><a style="color: white;" href="{{ url('/') }}"><span style="color: white;" class="fa fa-home" aria-hidden="true"></span> Home</a></li>
+
                         @if (Auth::guest())
                             <li><a id="aa"href="{{ route('login') }}">Login</a></li>
                             <li><a id="aa"href="{{ route('register') }}">Register</a></li>
                         @else
-
-
-                        <li class="dropdownBell">
-                          <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
-                             <i class="fa fa-bell-o" aria-hidden="true"></i></span>
-                          </a>
-
-                          <ul id="topbar" class="dropdown-menu topbarr" role="menu">
-                              <li>
-                                <form class="" action="" method="post">
-                                {{--  @foreach($questions as $question)
-                                  <a href="#">{{$question->title}}</a><br />
-                                  @endforeach --}}
-                                </form>
-                              </li>
-                          </ul>
-                        </li>
-
 
                             <li class="dropdown topbarr">
                                 <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -109,6 +135,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script>
+  $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+});
+</script>
+
 </body>
 </html>
 

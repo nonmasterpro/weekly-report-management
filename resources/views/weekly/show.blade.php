@@ -4,11 +4,11 @@
 
 @if($user->role==1)
     <form action="{{ URL('weekly/'.$weeklys->week.'/day')}}">
-<button id="myButton11" class="btn btn-info" type="submit"> Back </button>
+<button id="myButton11" class="btn btn-info tttt" type="submit"> Back </button>
     </form>
 @else
 <button id="myButton11" onclick="window.location.href='/weekly'"
-class="btn btn-info" type="button" name="button"> Back </button>
+class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endif
 
 <div id="listQ" class="row">

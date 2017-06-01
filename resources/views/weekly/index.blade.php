@@ -8,8 +8,8 @@
   <button id="myButton" onclick="window.location.href='weekly/user'"
   class="btn btn-primary" type="button" name="button"> My Question </button> --}}
 
-  <button id="myButton1" onclick="window.location.href='/home'"
-  class="btn btn-info" type="button" name="button"> Back </button>
+  <button id="myButton1" onclick="window.location.href='/'"
+  class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 </div>
 

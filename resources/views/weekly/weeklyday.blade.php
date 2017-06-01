@@ -4,10 +4,10 @@
 
 @if ($user->role==1)
 <button id="myButton1" onclick="window.location.href='/weekly/user'"
-class="btn btn-info" type="button" name="button"> Back </button>
+class="btn btn-info tttt" type="button" name="button"> Back </button>
 @else
 <button id="myButton" onclick="window.location.href='/weekly'"
-class="btn btn-info" type="button" name="button"> Back </button>
+class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endIf
 
 <div id="listQ" class="row">

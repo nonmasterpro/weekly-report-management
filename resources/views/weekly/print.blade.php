@@ -3,12 +3,12 @@
 @section('content')
 
 <button id="myButton1" onclick="window.location.href='/weekly/user'"
-class="btn btn-info" type="button" name="button"> Back </button>
+class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-default tttt">
                 <div class="panel-heading">Print Preview
                   <button type="button" class="btn btn-primary printBtn" onclick="printJS('printJS-form', 'html')">
                      Print Form
@@ -34,7 +34,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
                   <table class="table table-striped tablee maintable">
                   <tr class=" headtable">
-                  <td class="tablee aer"><p style="font-weight: normal;float:left;width: 90px!important;">YY/MM/DD</p></td>
+                  <td class="tablee aer"><p style="font-weight: normal;margin-left: 10px;width: 90px!important;">YY/MM/DD</p></td>
                   <td class="tablee aer"><p style="font-weight: normal; margin-left: 200px;">Work Details</p></td>
                   <td class="tablee aer"><p style="font-weight: normal;float:left">Remarks</p></td>
                   </tr>
@@ -81,7 +81,7 @@ class="btn btn-info" type="button" name="button"> Back </button>
 
 <style media="screen">
 .aer{
-  height: -50px;
+
 }
 .son{
   border-right: solid 0.8px;
