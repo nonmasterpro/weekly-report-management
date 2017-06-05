@@ -16,6 +16,13 @@
 <div id="listQ" class="row">
   <h3>Weekly Report
 </h3>
+
+@if(sizeof($weeklys)==0)
+
+<h3>There are no data</h3>
+
+@else
+
 <table class="table table-striped">
 <tr>
 <th>Name</th>
@@ -49,6 +56,7 @@
 </tr>
 @endforeach
 </table>
+@endif
 </div>
 @stop
 

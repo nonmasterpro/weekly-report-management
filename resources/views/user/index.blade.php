@@ -13,6 +13,13 @@
     <button onclick="window.location.href='/user/create'"
     class="btn btn-success " type="button" name="button"> Add </button>
 </h3>
+
+@if(sizeof($users)==0)
+
+<h3>There are no data</h3>
+
+@else
+
 <table class="table table-striped">
 <tr>
 <th>First Name</th>
@@ -74,6 +81,7 @@
 
 @endforeach
 </table>
+@endif
 </div>
 @stop
 

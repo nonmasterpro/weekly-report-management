@@ -13,6 +13,13 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 <div id="listQ" class="row">
   <h3>Weekly Report - {{$user->name}}
 </h3>
+
+@if(sizeof($reports)==0)
+
+<h3>There are no data</h3>
+
+@else
+
 <table class="table table-striped">
 <tr>
 <th class="dateCol">#</th>
@@ -57,6 +64,8 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 </tr>
 @endforeach
 </table>
+
+@endif
 </div>
 
 

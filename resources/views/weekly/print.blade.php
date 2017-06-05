@@ -14,6 +14,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
                      Print Form
                   </button>
                 </div>
+
                 <form method="post" action="#" id="printJS-form">
                   <img class="img" src="http://www.cmu.ac.th/data/image/layout/cmu_logo.png" alt="logo" height="70" width="70">
                     <h6 class="coop">Cooperative Education</h6>
@@ -34,15 +35,15 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 
                   <table class="table table-striped tablee maintable">
                   <tr class=" headtable">
-                  <td class="tablee aer"><p style="font-weight: normal;margin-left: 10px;width: 90px!important;">YY/MM/DD</p></td>
-                  <td class="tablee aer"><p style="font-weight: normal; margin-left: 200px;">Work Details</p></td>
+                  <td class="tablee aer"><p style="font-weight: normal;margin-left: 4px;">YY/MM/DD</p></td>
+                  <td class="tablee aer"><p style="font-weight: normal; margin-left: 200px; width: 300px!important;">Work Details</p></td>
                   <td class="tablee aer"><p style="font-weight: normal;float:left">Remarks</p></td>
                   </tr>
 
                   @foreach($weeklys as $weekly)
                   @if($weekly->status==2)
-                  <tr>
-                    <td class="son"><span style="margin-left: 10px;">{{$weekly->title}}</span></td>
+                  <tr class="sonTable">
+                    <td class="son"><span style="margin-left: 8px;">{{$weekly->title}}</span></td>
                     <td class="son">{{$weekly->discription}}</td>
                     <td class="son"><span >{{$weekly->Qcoin}}</span></td>
 
@@ -66,10 +67,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 
                 </div>
-
-
                 </form>
-
 
 
             </div>
@@ -80,24 +78,29 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @stop
 
 <style media="screen">
+.sonTable{
+}
 .aer{
 
 }
 .son{
-  border-right: solid 0.8px;
+  border-right: solid 1px;
+  border-left: : solid 1px;
+  /*border-bottom: solid 1px #A4A4A4;*/
+
 }
 .sign{
   margin-top: 40%;
   margin-left: 10px;
 }
 .tablee{
-  border-top: solid 2px!important;
+  border-top: solid 1px!important;
   border: solid 0.8px;
   padding-top: 30%;
 }
 #headd{
   margin-left: 41.5%;
-  font-size: 35px;
+  font-size: 45px;
 }
 #subhead{
   margin-left: 46%;
@@ -144,6 +147,8 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   margin-left: 75%;
 }
 .maintable{
+
+  border-left: solid 1px!important;
 
 }
 .hrr{

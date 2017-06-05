@@ -74,7 +74,7 @@ class WeeklyController extends Controller
         $User = Auth::user();
         $id = explode(",", $id);
         foreach($id as $ids) {
-        $q = weekly::where('week', $ids)->get();
+        $q = weekly::where('week', $ids)->where('username',$User->name)->get();
             
         }
 
@@ -334,11 +334,14 @@ class WeeklyController extends Controller
         }
 
          foreach($id as $ide) {
-        $a = weekly::where('week', $ide)->get();
+        $a = weekly::where('week', $ide)->where('username', $User->name)->get();
+
             // if(!is_null($q['questions'])) {
                 // $question = array_merge($question, $q['questions']->toArray());
             // }
         }
+
+
 
         // $data['weeklys'] = $a;
         // $data['user'] = $User;
