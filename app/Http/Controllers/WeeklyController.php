@@ -19,6 +19,8 @@ class WeeklyController extends Controller
     {
 
     /////////////
+    if (Auth::user()) {
+        # code...
       $User = Auth::user();
       $ids = $User->mentorid;
       $name = $User->name;
@@ -30,7 +32,10 @@ class WeeklyController extends Controller
         
       }
       return view('weekly.index', ['weeklys' => $q], ['user' => $User]);
-
+    }
+    else{
+        return redirect('/');
+    }
       ////////////
 
         // $question = Question::all();
@@ -43,6 +48,8 @@ class WeeklyController extends Controller
     public function indexid()
     {
 
+        if (Auth::user()) {
+            # code...
         $ids = Auth::id();
         $User = Auth::user();
         $ids = explode(",", $ids);
@@ -54,10 +61,15 @@ class WeeklyController extends Controller
             // }
         }
         return view('weekly.indexid', ['weeklys' => $q], ['user' => $User]);
-
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     public function weeklyday($id){
+
+        if (Auth::user()) {
 
         $User = Auth::user();
         $id = explode(",", $id);
@@ -67,6 +79,10 @@ class WeeklyController extends Controller
         }
 
         return view('weekly.weeklyday',['reports' => $q],['user' => $User]);
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -76,6 +92,8 @@ class WeeklyController extends Controller
      */
     public function create()
     {
+        if (Auth::user()) {
+            # code...
         //
         $User = Auth::user();
         $user = user::all();
@@ -83,6 +101,10 @@ class WeeklyController extends Controller
 
 
         return view('weekly.create', ['user' => $User],['users' => $user],compact('weekly'));
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -150,6 +172,9 @@ class WeeklyController extends Controller
      */
     public function show($id)
     {
+        if (Auth::user()) {
+            # code...
+        
       $User = Auth::user();
 
       $ids = $id;
@@ -161,7 +186,10 @@ class WeeklyController extends Controller
 
 
       return view('weekly.show', ['weeklys' => weekly::findOrFail($id)],['user' => $User]);
-
+       }
+        else{
+            return redirect('/');
+        }
     }
 
 
@@ -173,6 +201,9 @@ class WeeklyController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()) {
+            # code...
+        
             $weekly = weekly::findOrFail($id);
             $user = user::all();
             $User = Auth::user();
@@ -180,6 +211,10 @@ class WeeklyController extends Controller
 
 
         return view('weekly.edit', compact('weekly'), ['user'=>$User], ['users'=>$user]);
+         }
+        else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -215,7 +250,7 @@ class WeeklyController extends Controller
 
           // return view('question.indexid');
 
-          return redirect('weekly/user')->with('alert-success','Data Hasbeen Saved');
+          return redirect('weekly/'.$week.'/day')->with('alert-success','Data Hasbeen Saved');
     }
 
     public function updateComment(Request $request, $id)
@@ -277,7 +312,9 @@ class WeeklyController extends Controller
 
     public function printReport($id)
     {
-
+        if (Auth::user()) {
+            # code...
+        
 
         $User = Auth::user();
         $aa="$id";
@@ -308,6 +345,11 @@ class WeeklyController extends Controller
         // $data['asd']   =$aa;
 
         return view('weekly.print',['weeklys' => $a,'user' => $User,'asd' => $aa]);
+
+         }
+        else{
+            return redirect('/');
+        }
 
 
     }

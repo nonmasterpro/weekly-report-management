@@ -15,9 +15,16 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Auth::user()) {
+            # code...
+        
       $user = user::all();
 
       return view('user.index',['users' => $user]);
+       }
+        else{
+            return redirect('/');
+        }
 
     }
 
@@ -28,12 +35,19 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (Auth::user()) {
+            # code...
+        
         //
         $User = Auth::user();
         $Users = user::all();
 
 
         return view('user.create', ['user' => $User],['users' => $Users]);
+         }
+        else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -96,12 +110,19 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()) {
+            # code...
+        
         //
         $user = user::findOrFail($id);
         $User = user::all();
 
 
     return view('user.edit', compact('user'), ['users' => $User]);
+     }
+        else{
+            return redirect('/');
+        }
     }
 
     /**
