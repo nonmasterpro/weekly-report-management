@@ -11,7 +11,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endIf
 
 <div id="listQ" class="row">
-  <h3>Weekly Report - {{$user->name}}
+  <h3>Weekly Report - Week {{$idweek[0]}} <br>{{$user->name}} {{$user->lastname}}
 </h3>
 
 @if(sizeof($reports)==0)

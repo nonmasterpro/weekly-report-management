@@ -12,7 +12,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endif
 
 <div id="listQ" class="row">
-  <h3 id="listH3">Report
+  <h3 id="listH3">Report - Week {{$weeklys->week}}
 
 </h3>
 

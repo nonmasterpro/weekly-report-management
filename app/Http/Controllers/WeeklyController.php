@@ -77,8 +77,7 @@ class WeeklyController extends Controller
         $q = weekly::where('week', $ids)->where('username',$User->name)->get();
             
         }
-
-        return view('weekly.weeklyday',['reports' => $q],['user' => $User]);
+        return view('weekly.weeklyday',['reports' => $q ,'user' => $User ,'idweek' => $id ]);
         }
         else{
             return redirect('/');

@@ -98,21 +98,20 @@
                         <li><a style="color: white;" href="{{ url('/') }}"><span style="color: white;" class="fa fa-home" aria-hidden="true"></span> Home</a></li>
 
                         @if (Auth::guest())
-                            <li><a id="aa"href="{{ route('login') }}">Login</a></li>
-                            <li><a id="aa"href="{{ route('register') }}">Register</a></li>
+                            <li><a id="aa"href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                            <li><a id="aa"href="{{ route('register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
                         @else
 
                             <li class="dropdown topbarr">
                                 <a id="topbar"href="#" class="dropdown-toggle topbarr" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <ul id="topbar" class="dropdown-menu topbarr" role="menu">
                                     <li>
 
                                         <a class="topbarr"id="topbar" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                                         </a>
 
                                         <form class="topbarr" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
