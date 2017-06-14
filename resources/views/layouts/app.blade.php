@@ -13,19 +13,13 @@
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://printjs-4de6.kxcdn.com/print.min.js" ></script>
-
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://printjs-4de6.kxcdn.com/print.min.js" ></script>
-  <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
@@ -43,9 +37,11 @@
 
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <div class="sidebar-brand text-center"> Tecmove</div>
-
+        <div class="sidebar-brand text-center headlogo">
+                <img class="img2" src="{{ asset('img/Tecmove2.png') }}" alt="logo" >
+         </div>
        @if (Auth::guest())
+       <br>
         <span style="margin-left: 20px;">Hi Guest</span>
        @elseif (Auth::user()->role==1)
         <li>
@@ -56,7 +52,7 @@
         </li>
         @elseif (Auth::user()->role==2)
         <li>
-          <a class="current-parent current" href="/weekly" > <i class="fa fa-eye"></i> <span class="menu_title"> Weekly Reports</span></a>
+          <a class="current-parent current" href="/weekly/intern" > <i class="fa fa-eye"></i> <span class="menu_title"> Weekly Reports</span></a>
         </li>
         @elseif (Auth::user()->role==3)
         <li>
@@ -64,7 +60,11 @@
         </li>
         @endif
 
-       
+        <div class="footer">
+        
+        Copyright @2017 Tecmove All rights reserved
+            
+        </div>
         
 
       </ul>
@@ -81,7 +81,7 @@
 
 
                     <!-- Branding Image -->
-                    <a id="aa"class="navbar-brand topbarr" href="{{ url('/') }}">
+                    <a id="aa"class="navbar-brand topbarr" href="{{ url('/welcome') }}">
                         Weekly Report
                     </a>
                 </div>
@@ -95,7 +95,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul  class="nav navbar-nav navbar-right topbarr">
                         <!-- Authentication Links -->
-                        <li><a style="color: white;" href="{{ url('/') }}"><span style="color: white;" class="fa fa-home" aria-hidden="true"></span> Home</a></li>
+                        <li><a style="color: white;" href="{{ url('/welcome') }}"><span style="color: white;" class="fa fa-home" aria-hidden="true"></span> Home</a></li>
 
                         @if (Auth::guest())
                             <li><a id="aa"href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
@@ -107,9 +107,14 @@
                                     <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <ul id="topbar" class="dropdown-menu topbarr" role="menu">
-                                    <li>
 
-                                        <a class="topbarr"id="topbar" href="{{ route('logout') }}"
+                                    {{-- <li><a id="aa" href="{{URL('user/updatePro/'.Auth::user()->id)}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Your Profile</a></li> --}}
+                                    @if(Auth::user()->role==1)
+                                    <li><a class="topbarr" href="{{URL('user/updatePro/'.Auth::user()->id)}}"><i class="fa fa-user-plus" aria-hidden="true"></i> Update Profile</a></li>
+                                    @endif
+
+                                    <li>
+                                        <a class="topbarr" id="topbar" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                                         </a>
@@ -118,6 +123,9 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+
+
                                 </ul>
                             </li>
 
@@ -130,12 +138,14 @@
       </div>
 
         @yield('content')
+    
     </div>
-
+    
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <script>
+<script>
+
   $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
@@ -146,6 +156,11 @@
 </html>
 
 <style>
+.footer{
+    position: absolute;
+    top: 810px;
+    font-size: 8px;
+}
 #topbar{
   /*background-color: #5A5656!important;*/
    /*#5A5656*/
@@ -153,5 +168,14 @@
 }
 #aa{
   color: white;
+}
+.img2{
+    /*width: 100%;*/
+    height: 50px;
+
+}
+.headlogo{
+    background-color: white;
+    height: 50px;
 }
 </style>

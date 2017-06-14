@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
 
 Route::get('/login', function () {
@@ -41,11 +41,18 @@ Route::get('/home', 'HomeController@index');
   // Route::get('weekly/{id}/reject','QuestionController@updatestatusR');
   // Uses Auth Middleware
 
-  Route::resource('user', 'UserController') ;
+  Route::get('user/updatePro/{id}', 'UserController@edit2')->name("user.updatePro");
+  Route::get('users/{id}/update', 'UserController@updateProfile')->name("user.updateProfile");
+  Route::resource('user', 'UserController');
+
+
 
   //
 
   Route::get('weekly/user', 'WeeklyController@indexid');
+  Route::get('welcome', 'WeeklyController@indexid2');
+  Route::get('weekly/intern', 'WeeklyController@indexintern');
+  Route::get('weekly/{id}/report', 'WeeklyController@indexinternreport');
   Route::get('weekly/{id}/approve','WeeklyController@updatestatusA');
   Route::get('weekly/{id}/reject','WeeklyController@updatestatusR');
   Route::get('weekly/{id}/print', 'WeeklyController@printReport');

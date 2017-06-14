@@ -67,6 +67,74 @@ class WeeklyController extends Controller
         }
     }
 
+    public function indexintern()
+    {
+
+        if (Auth::user()) {
+            # code...
+        $ids = Auth::id();
+        $User = Auth::user();
+        $u = $User->name;
+        $u = explode(",", $u);
+        $question = array();
+        foreach($u as $us) {
+        $q = user::where('mentorid', $us)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+        return view('weekly.weeklyIntern', ['users' => $q], ['user' => $User]);
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
+    public function indexinternreport($id)
+    {
+
+        if (Auth::user()) {
+            # code...
+        $ids = Auth::id();
+        $User = Auth::user();
+        $u = $User->name;
+        $id = explode(",", $id);
+        $question = array();
+        foreach($id as $idd) {
+        $q = weekly::where('userId', $idd)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+        return view('weekly.weeklyInternReport', ['reports' => $q], ['user' => $User]);
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
+    public function indexid2()
+    {
+
+        if (Auth::user()) {
+            # code...
+        $ids = Auth::id();
+        $User = Auth::user();
+        $ids = explode(",", $ids);
+        $question = array();
+        foreach($ids as $id) {
+        $q = weekly::where('userId', $id)->orderby('id','desc')->limit(5)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+        return view('welcome', ['weeklys' => $q], ['user' => $User]);
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
     public function weeklyday($id){
 
         if (Auth::user()) {
@@ -175,14 +243,11 @@ class WeeklyController extends Controller
             # code...
         
       $User = Auth::user();
-
       $ids = $id;
       $ids = explode(",", $ids);
-
       foreach($ids as $i) {
-      $q = answer::where('QId', $i)->get();
+      $q = weekly::where('userId', $i)->get();
       }
-
 
       return view('weekly.show', ['weeklys' => weekly::findOrFail($id)],['user' => $User]);
        }
@@ -289,7 +354,7 @@ class WeeklyController extends Controller
         $question->update(['status' => 2]);
         // dd($question);
 
-        return redirect('weekly');
+        return redirect('weekly/'.$id);
 
     }
     /**
@@ -305,7 +370,7 @@ class WeeklyController extends Controller
         $question->update(['status' => 3]);
         // dd($question);
 
-        return redirect('weekly');
+        return redirect('weekly/'.$id);
 
     }
 

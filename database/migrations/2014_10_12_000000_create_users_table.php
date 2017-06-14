@@ -17,12 +17,17 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('lastname');
+            $table->integer('sid')->nullable()->default(null); //
+            $table->string('department')->nullable()->default(null); //
+            $table->string('fac')->nullable()->default(null); //
+            $table->date('start')->nullable()->default(null); //
+            $table->date('end')->nullable()->default(null); //
             $table->string('position');
             $table->string('email');
             $table->string('password');
             $table->integer('role')->default(1);
-            $table->integer('week')->default(0);
-            $table->string('mentorid')->default("null");
+            $table->integer('week')->nullable()->default(null);
+            $table->string('mentorid')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });

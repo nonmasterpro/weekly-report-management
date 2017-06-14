@@ -125,6 +125,23 @@ class UserController extends Controller
         }
     }
 
+    public function edit2($id)
+    {
+        if (Auth::user()) {
+            # code...
+        
+        //
+        $user = user::findOrFail($id);
+        $User = user::all();
+
+
+    return view('user.updatePro', compact('user'), ['users' => $User]);
+     }
+        else{
+            return redirect('/');
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -164,6 +181,36 @@ class UserController extends Controller
         return redirect('user')->with('alert-success','Data Hasbeen Saved');
     }
 
+
+    public function updateProfile(Request $request, $id)
+    {
+        //
+        $sid = $request -> sid;
+        $department = $request -> department;
+        $fac = $request -> fac;
+        $start = $request -> start;
+        $end = $request -> end;
+
+
+        // $password = $request -> password;
+
+        // $idu = Auth::id();
+
+        $user = user::findOrFail($id);
+
+        $user->sid = $sid;
+        $user->department = $department;
+        $user->fac = $fac;
+        $user->start = $start;
+        $user->end = $end;
+        // $user->password = $password;
+        // $question->UserQId = $idu;
+        $user->save();
+
+        // return view('question.indexid');
+
+        return redirect('/')->with('alert-success','Data Hasbeen Saved');
+    }
     /**
      * Remove the specified resource from storage.
      *

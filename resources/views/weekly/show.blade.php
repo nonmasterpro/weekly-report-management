@@ -7,14 +7,15 @@
 <button id="myButton11" class="btn btn-info tttt" type="submit"> Back </button>
     </form>
 @else
-<button id="myButton11" onclick="window.location.href='/weekly'"
+<button id="myButton11" onclick="window.history.back();"
 class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endif
 
-<div id="listQ" class="row">
+<div id="" class="row">
   <h3 id="listH3">Report - Week {{$weeklys->week}}
 
 </h3>
+
 
 <div id="questionbox"class="">
   <div id="titleQ" class="">
@@ -36,11 +37,11 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   <div class="butt" id="butt">
 
     <form action="{{ URL('weekly/'.$weeklys->id.'/reject')}}" method="get" >
-        <button id="myButton22" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')">Reject</button>
+        <button style="float: right; margin-right: 30px;" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')">Reject</button>
     </form>
 
   <form action="{{ URL('weekly/'.$weeklys->id.'/approve')}}" method="get" >
-      <button id="myButton33" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
+      <button style="float: right; margin-right: 10px;" type="submit" class = "btn btn-success" onclick="return confirm('Are you sure?')">Approve</button>
   </form>
 
   </div>

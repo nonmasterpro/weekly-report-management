@@ -8,7 +8,7 @@
   <button id="myButton" onclick="window.location.href='weekly/user'"
   class="btn btn-primary" type="button" name="button"> My Question </button> --}}
 
-  <button id="myButton1" onclick="window.location.href='/welcome'"
+  <button id="myButton1" onclick="window.location.href='/weekly/intern'"
   class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 </div>
@@ -17,7 +17,7 @@
   <h3>Weekly Report
 </h3>
 
-@if(sizeof($weeklys)==0)
+@if(sizeof($reports)==0)
 
 <h3>There are no data</h3>
 
@@ -27,6 +27,7 @@
 <tr>
 <th>Name</th>
 <th>Date</th>
+<th>Week</th>
 <th>Remark</th>
 <th>Status</th>
 <th>Action</th>
@@ -34,23 +35,26 @@
 </tr>
 
 
-@foreach($weeklys as $weekly)
+@foreach($reports as $report)
 <tr>
-  <td>{{$weekly->username}}</td>
-  <td> {{$weekly->title}}</td>
-  <td>{{$weekly->Qcoin}}</td>
-  <td>
-    @if($weekly->status==1)
+  <td>{{$report->username}}</td>
+  <td>{{$report->title}}</td>
+  <td>{{$report->week}}</td>
+  <td>{{$report->Qcoin}}</td>
+	<td>
+    @if($report->status==1)
     <span id="span1">Pending</span>
-    @elseif($weekly->status==2)
+    @elseif($report->status==2)
     <span id="span2">Approve</span>
-    @elseif($weekly->status==3)
+    @elseif($report->status==3)
     <span id="span3">Reject</span> 
     @endif
   </td>
 
+  
+
   <td>
-    <a href="{{route('weekly.show',$weekly->id)}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
+    <a href="{{route('weekly.show',$report->id)}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
   </td>
 
 </tr>

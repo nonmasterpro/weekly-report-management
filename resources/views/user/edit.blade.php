@@ -40,7 +40,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
                         <select class="selectpicker" name="mentorid" id="mentorid">
                             @foreach ($users as $u)
                               @if($u->role!=1 && $u->role!=3)
-                              <option value="{{$u->name}}">{{$u->name}}</option>
+                              <option value="{{$u->name}}">{{$u->name}} {{$u->lastname}}</option>
                               @endif
                             @endforeach
                           </select><br /><br />

@@ -3,7 +3,7 @@
 @section('content')
 <div class="">
 
-  <button id="myButton1" onclick="window.location.href='/'"
+  <button id="myButton1" onclick="window.location.href='/welcome'"
   class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 </div>
@@ -26,7 +26,7 @@
 <th>Last Name</th>
 <th>Position</th>
 <th>Email</th>
-<th>Password</th>
+{{-- <th>Password</th> --}}
 <th>Mentor</th>
 <th>Week</th>
 <th>Role</th>
@@ -41,7 +41,7 @@
   <td>{{$user->lastname}}</td>
   <td>{{$user->position}}</td>
   <td> {{$user->email}}</td>
-  <td>😙😙😙😙😙</td>
+  {{-- <td>😙😙😙😙😙</td> --}}
 
   @if($user->role==1)
   <td>{{$user->mentorid}}</td>

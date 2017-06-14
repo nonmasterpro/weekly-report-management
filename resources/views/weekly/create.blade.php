@@ -3,7 +3,7 @@
 @section('content')
 
 @if ($user->role==1)
-<button id="myButton1" onclick="window.location.href='/'"
+<button id="myButton1" onclick="window.location.href='/welcome'"
 class="btn btn-info tttt" type="button" name="button"> Back </button>
 @else
 <button id="myButton1" onclick="window.location.href='/weekly'"
@@ -63,3 +63,9 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 
 @endsection
+
+<style>
+.img2{
+  /*margin-top: -10px;*/
+}
+</style>

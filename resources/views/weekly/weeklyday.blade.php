@@ -8,7 +8,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @else
 <button id="myButton" onclick="window.location.href='/weekly'"
 class="btn btn-info tttt" type="button" name="button"> Back </button>
-@endIf
+@endif
 
 <div id="listQ" class="row">
   <h3>Weekly Report - Week {{$idweek[0]}} <br>{{$user->name}} {{$user->lastname}}
