@@ -48,7 +48,6 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endif
 
 {{-- @if($weeklys->status==2)
-
 <form action="{{ URL('weekly/print')}}" method="get" >
     <button id="myButton33" type="submit" class = "btn btn-info">Print Preview</button>
 </form>

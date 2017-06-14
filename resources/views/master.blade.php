@@ -4,7 +4,7 @@
     
         <div class="eiei">
   
-        <p style="margin-left: 10px;font-family: Mitr;color: #747474">Dashboard</p>
+        <p style="margin-left: 10px;font-size: 40px; font-family: Mitr;color: #747474">Welcome</p>
 
     </div>
 

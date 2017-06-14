@@ -18,7 +18,6 @@ class WeeklyController extends Controller
     public function index()
     {
 
-    /////////////
     if (Auth::user()) {
         # code...
       $User = Auth::user();
@@ -249,7 +248,7 @@ class WeeklyController extends Controller
       $q = weekly::where('userId', $i)->get();
       }
 
-      return view('weekly.show', ['weeklys' => weekly::findOrFail($id)],['user' => $User]);
+      return view('weekly.show', ['weeklys' => weekly::findOrFail($id)],['user' => $User, 'q'=>$q]);
        }
         else{
             return redirect('/');
@@ -354,7 +353,7 @@ class WeeklyController extends Controller
         $question->update(['status' => 2]);
         // dd($question);
 
-        return redirect('weekly/'.$id);
+        return redirect('weekly/'.$question->userId.'/report');
 
     }
     /**
@@ -370,7 +369,7 @@ class WeeklyController extends Controller
         $question->update(['status' => 3]);
         // dd($question);
 
-        return redirect('weekly/'.$id);
+        return redirect('weekly/'.$question->userId.'/report');
 
     }
 
