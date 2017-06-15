@@ -16,8 +16,8 @@
 <div id="listQ" class="row">
   <h3>Weekly Report
 
-  <button id="" onclick="window.location.href='/weekly/{{$id_intern}}/app'"
-  class="btn btn-success " type="button" name="button"> Approve </button>
+  <button id="" onclick="window.location.href='/weekly/{{$id_intern}}/report'"
+  class="btn btn-info " type="button" name="button"> Pending </button>
   <button id="" onclick="window.location.href='/weekly/{{$id_intern}}/rej'"
   class="btn btn-danger " type="button" name="button"> Reject </button>
 

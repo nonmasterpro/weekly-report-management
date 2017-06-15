@@ -55,6 +55,8 @@ Route::get('/home', 'WeeklyController@indexid2');
 
   Route::get('weekly/user', 'WeeklyController@indexid');
   Route::get('welcome', 'WeeklyController@indexid2');
+  Route::get('weekly/{id}/app', 'WeeklyController@indexinternreportApp');
+  Route::get('weekly/{id}/rej', 'WeeklyController@indexinternreportRej');
   Route::get('weekly/intern', 'WeeklyController@indexintern');
   Route::get('weekly/{id}/report', 'WeeklyController@indexinternreport');
   Route::get('weekly/{id}/approve','WeeklyController@updatestatusA');

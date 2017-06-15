@@ -94,24 +94,72 @@ class WeeklyController extends Controller
 
         if (Auth::user()) {
             # code...
+        $id_intern = $id;
         $ids = Auth::id();
         $User = Auth::user();
         $u = $User->name;
         $id = explode(",", $id);
         $question = array();
         foreach($id as $idd) {
-        $q = weekly::where('userId', $idd)->get();
+        $q = weekly::where('userId', $idd)->where('status',1)->get();
             // if(!is_null($q['questions'])) {
                 // $question = array_merge($question, $q['questions']->toArray());
             // }
         }
-        return view('weekly.weeklyInternReport', ['reports' => $q], ['user' => $User]);
+        return view('weekly.weeklyInternReport', ['reports' => $q, 'id_intern' => $id_intern], ['user' => $User]);
         }
         else{
             return redirect('/');
         }
     }
 
+    public function indexinternreportApp($id)
+    {
+
+        if (Auth::user()) {
+            # code...
+        $id_intern = $id;
+        $ids = Auth::id();
+        $User = Auth::user();
+        $u = $User->name;
+        $id = explode(",", $id);
+        $question = array();
+        foreach($id as $idd) {
+        $q = weekly::where('userId', $idd)->where('status',2)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+        return view('weekly.weeklyInternAp', ['reports' => $q, 'id_intern' => $id_intern], ['user' => $User]);
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
+    public function indexinternreportRej($id)
+    {
+
+        if (Auth::user()) {
+            # code...
+        $id_intern = $id;
+        $ids = Auth::id();
+        $User = Auth::user();
+        $u = $User->name;
+        $id = explode(",", $id);
+        $question = array();
+        foreach($id as $idd) {
+        $q = weekly::where('userId', $idd)->where('status',3)->get();
+            // if(!is_null($q['questions'])) {
+                // $question = array_merge($question, $q['questions']->toArray());
+            // }
+        }
+        return view('weekly.weeklyInternRej', ['reports' => $q, 'id_intern' => $id_intern], ['user' => $User]);
+        }
+        else{
+            return redirect('/');
+        }
+    }
     public function indexid2()
     {
 
