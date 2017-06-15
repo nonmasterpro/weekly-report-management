@@ -72,8 +72,8 @@
     <form class = "" action="{{route('user.destroy',$user->id)}}" method="post">
     <input type ="hidden" name="_method" value="delete">
     <input type ="hidden" name="_token" value="{{ csrf_token() }}">
-    <a href="{{route('user.edit',$user->id)}}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-    <button type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+    <a href="{{route('user.edit',$user->id)}}" style="margin-top: 5px;" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+    <button style="margin-top: 5px;" type="submit" class = "btn btn-danger" onclick="return confirm('Are you sure?')" name="name" value="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
   </form>
   </td>
 

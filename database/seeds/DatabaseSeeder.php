@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Teerapong",
             'lastname' => "Boonmak",
             'position' => "Front-end developer",
+            'role'=>1,
             'email' => "non@non.com",
             'password' => bcrypt('123456'),
         ]);
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Jirawat",
             'lastname' => "Wannawang",
             'position' => "Senior Software developer",
+            'role'=>2,
             'email' => "Jirawat@tecmovecorp.com",
             'password' => bcrypt('123456'),
         ]);
@@ -31,6 +33,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Metha",
             'lastname' => "Yeanyoungyuen",
             'position' => "Senior Software developer",
+            'role'=>2,
             'email' => "Metha@tecmovecorp.com",
             'password' => bcrypt('123456'),
         ]);
@@ -39,6 +42,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Akarapong",
             'lastname' => "Pudjai",
             'position' => "Senior Software developer",
+            'role'=>2,
             'email' => "Akarapong@tecmovecorp.com",
             'password' => bcrypt('123456'),
         ]);
@@ -47,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => "Admin",
             'position' => "Admin",
             'email' => "Admin@tecmovecorp.com",
+            'role'=>3,
             'password' => bcrypt('123456'),
         ]);
     }

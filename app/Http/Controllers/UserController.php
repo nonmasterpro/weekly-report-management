@@ -209,7 +209,7 @@ class UserController extends Controller
 
         // return view('question.indexid');
 
-        return redirect('/')->with('alert-success','Data Hasbeen Saved');
+        return redirect('/welcome')->with('alert-success','Data Hasbeen Saved');
     }
     /**
      * Remove the specified resource from storage.

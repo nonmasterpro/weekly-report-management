@@ -16,19 +16,19 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
                   <input name="_method" type="hidden" value="PATCH">
 
                   <p>Student No. </p>
-                  <input style="width:250px" type= "number" class = "form-control" name="sid" value = "" required><br>
+                  <input style="width:250px" type= "number" class = "form-control" name="sid" value = "{{$user->sid}}" required><br>
 
                    <p>Departmant </p>
-                  <input style="width:250px" type= "text" class = "form-control" name="department" value = "" required><br>
+                  <input style="width:250px" type= "text" class = "form-control" name="department" value = "{{$user->department}}" required><br>
 
                    <p>Faculty </p>
-                  <input style="width:250px" type= "text" class = "form-control" name="fac" value = "" required><br>
+                  <input style="width:250px" type= "text" class = "form-control" name="fac" value = "{{$user->fac}}" required><br>
 
                   <p>Intern Start </p>
-                    <input style="width:250" type= "date" class = "form-control" name="start" value = "" required><br>
+                    <input style="width:250" type= "date" class = "form-control" name="start" value = "{{$user->start}}" required><br>
 
                   <p>Intern End </p>
-                    <input style="width:250" type= "date" class = "form-control" name="end" value = "" required><br>
+                    <input style="width:250" type= "date" class = "form-control" name="end" value = "{{$user->end}}" required><br>
 
 
                 <button type="submit" class="btn btn-primary">Update</button>
