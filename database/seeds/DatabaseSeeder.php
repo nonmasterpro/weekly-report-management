@@ -15,15 +15,31 @@ class DatabaseSeeder extends Seeder
             'name' => "Teerapong",
             'lastname' => "Boonmak",
             'position' => "Front-end developer",
-            'email' => "teerapong",
+            'email' => "non@non.com",
             'password' => bcrypt('123456'),
         ]);
 
          DB::table('users')->insert([
             'name' => "Jirawat",
-            'lastname' => "Jern",
-            'position' => "Senior developer",
-            'email' => "j@j.j",
+            'lastname' => "Wannawang",
+            'position' => "Senior Software developer",
+            'email' => "Jirawat@tecmovecorp.com",
+            'password' => bcrypt('123456'),
+        ]);
+
+         DB::table('users')->insert([
+            'name' => "Metha",
+            'lastname' => "Yeanyoungyuen",
+            'position' => "Senior Software developer",
+            'email' => "Metha@tecmovecorp.com",
+            'password' => bcrypt('123456'),
+        ]);
+
+         DB::table('users')->insert([
+            'name' => "Akarapong",
+            'lastname' => "Pudjai",
+            'position' => "Senior Software developer",
+            'email' => "Akarapong@tecmovecorp.com",
             'password' => bcrypt('123456'),
         ]);
          DB::table('users')->insert([
