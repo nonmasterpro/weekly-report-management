@@ -225,7 +225,7 @@ class WeeklyController extends Controller
         // $User->save();
         $questions->save();
 
-        return redirect('weekly/user');
+        return redirect('weekly/'.$week.'/day');
     }
 
 
