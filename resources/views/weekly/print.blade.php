@@ -5,14 +5,15 @@
 <button id="myButton1" onclick="window.location.href='/weekly/user'"
 class="btn btn-info tttt" type="button" name="button"> Back </button>
 
+<button type="myButton1" style="float: right; margin-right: 10px;" class="btn btn-primary tttt" onclick="printJS('printJS-form', 'html')">
+Print Form</button>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default tttt">
-                <div class="panel-heading">Print Preview
-                  <button type="button" class="btn btn-primary printBtn" onclick="printJS('printJS-form', 'html')">
-                     Print Form
-                  </button>
+            <div class="panel panel-primary tttt">
+                <div class="panel-heading panelheader">Print Preview
+                  
                 </div>
 
                 <form method="post" action="#" id="printJS-form">
@@ -172,5 +173,9 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   margin-left: 100px;
   margin-top: -1px;
 
+}
+.panelheader{
+  background-color: #3C4254!important;
+  color: white!important;
 }
 </style>
