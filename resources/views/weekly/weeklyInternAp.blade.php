@@ -73,5 +73,8 @@
 
 <style media="screen">
 
+.row{
+  margin-top: 3rem;
+}
 
 </style>

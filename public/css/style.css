@@ -19,33 +19,39 @@
   font-size: 15px;
 }
 #span1 {
-  padding: 3 3 3 3;
+  margin-top: 15px!important;
+  padding: 5 5 5 5;
   background-color: rgb(57, 151, 191);
   color: white;
-  border-style: double;
-  font-size: 10px;
+  /*border-style: double;*/
+  border-radius: 5px;
+  font-size: 12px;
 }
 #span2 {
-  padding: 3 3 3 3;
+  padding: 5 5 5 5;
   background-color: rgb(5, 207, 86);
   color: white;
-  border-style: double;
-  font-size: 10px;
+  /*border-style: double;*/
+  border-radius: 5px;
+  font-size: 12px;
 
 }
 #span3 {
-  padding: 3 3 3 3;
+  padding: 5 5 5 5;
   background-color: rgb(236, 63, 89);
   color: white;
-  border-style: double;
-  font-size: 10px;
+  /*border-style: double;*/
+  border-radius: 5px;
+  font-size: 12px;
 
 }
 #span4 {
   padding: 5 5 5 5;
   background-color: rgb(26, 46, 226);
   color: white;
-  border-style: double;
+  /*border-style: double;*/
+  border-radius: 5px;
+  font-size: 12px;
 }
 #listQ{
   padding: 20px 100px;
@@ -144,20 +150,21 @@
 
 }
 #questionbox{
-  border: 1px solid;
+  border: 1px solid #3C4254;
+  border-radius: 5px;
   width: 1000px;
   height: 280px;
   margin:0 auto;
-  background-color: gray;
+  background-color: #676D80;
   margin-bottom: 10px;
 }
 
 #commentbox{
-  border: 1px solid;
+  border: 1px solid #3C4254;
   width: 1000px;
   height: 340px;
   margin:0 auto;
-  background-color: gray;
+  background-color: #676D80;
 }
 
 #answerbox{
@@ -165,7 +172,7 @@
   width: 1000px;
   height: 280px;
   margin:0 auto;
-  background-color: #B5B5B5;
+  background-color: #676D80;
 }
 
 
@@ -195,13 +202,7 @@
 #selectRole{
   margin-bottom: 15px;
 }
-.actionCol:last-child{
-  /*width: 250px;*/
-}
-.dateCol:first:child{
-  /*width: 300px;*/
 
-}
 
 .buttonComment{
   float: right;

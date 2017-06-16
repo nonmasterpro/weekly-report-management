@@ -46,14 +46,9 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 
   </div>
 @endif
-
-{{-- @if($weeklys->status==2)
-<form action="{{ URL('weekly/print')}}" method="get" >
-    <button id="myButton33" type="submit" class = "btn btn-info">Print Preview</button>
-</form>
-@endif --}}
-
   </div>
+
+
 
 @if($weeklys->comment!='null')
   <h3 id="listH3">Comment</h3>
@@ -92,16 +87,11 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   </div>
 
 @endif
-
-
-
-
-
 @stop
 
-
-
-<style media="screen">
-
-
+<style>
+  .row{
+    margin-top: 5rem;
+  }
 </style>
+

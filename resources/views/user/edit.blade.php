@@ -7,25 +7,25 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default tttt">
-                <div class="panel-heading">Edit User</div>
+                <div class="panel-heading panelheader">Edit User</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "post" action = "{{route('user.update',$user->id)}}">
                   <input name="_method" type="hidden" value="PATCH">
 
                   <p>First Name </p>
-                  <input style="width:250px" type= "text" class = "form-control" name="name" value = "{{$user->name}}" required><br>
+                  <input type= "text" class = "form-control" name="name" value = "{{$user->name}}" required><br>
 
                    <p>Last Name </p>
-                  <input style="width:250px" type= "text" class = "form-control" name="lastname" value = "{{$user->lastname}}" required><br>
+                  <input type= "text" class = "form-control" name="lastname" value = "{{$user->lastname}}" required><br>
 
                    <p>Position </p>
-                  <input style="width:250px" type= "text" class = "form-control" name="position" value = "{{$user->position}}" required><br>
+                  <input type= "text" class = "form-control" name="position" value = "{{$user->position}}" required><br>
 
                   <p>Email </p>
-                    <input style="width:250" type= "text" class = "form-control" name="email" value = "{{$user->email}}" required><br>
+                    <input type= "text" class = "form-control" name="email" value = "{{$user->email}}" required><br>
                     <p>Role </p>
                       <!-- <input style="width:180px" type= "text" class = "form-control" name="name" value = "{{$user->role}}"><br> -->
                       <select class="selectpicker" id="userrole" data-style="btn-primary" name="role" required>
@@ -55,11 +55,11 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
                       @if($user->role==1)
                       <p>Week</p>
 
-                        <input style="width:250" type= "integer" class = "form-control" name="week" value = "{{$user->week}}" required><br>
+                        <input style="width:200" type= "integer" class = "form-control" name="week" value = "{{$user->week}}" required><br>
 
                       @endif
 
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button style="float: right" type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>
         </div>
@@ -83,6 +83,12 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endsection
 <style media="screen">
 
-
+.row{
+  margin-top: 5rem;
+}
+.panelheader{
+  background-color: #3C4254!important;
+  color: white!important;
+}
 
 </style>

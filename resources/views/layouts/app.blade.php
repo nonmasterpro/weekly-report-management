@@ -60,11 +60,11 @@
         </li>
         @endif
 
-        <div class="footer">
+        {{-- <div class="footer">
         
         Copyright @2017 Tecmove All rights reserved
             
-        </div>
+        </div> --}}
         
 
       </ul>

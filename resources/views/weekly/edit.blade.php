@@ -8,8 +8,8 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default tttt">
-                <div class="panel-heading">Edit Report</div>
+            <div class="panel panel-default panelall">
+                <div class="panel-heading panelheader">Edit Report</div>
 
                 <div class = "panel-body">
                 <form class = "" onsubmit="return validateForm()" name="aa" method = "post" action = "{{route('weekly.update',$weekly->id)}}">
@@ -46,7 +46,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
                   <p>Remark </p>
                       <input type= "text" class = "form-control" name="Qcoin" value="{{$weekly->Qcoin}}" required><br>
 
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button style="float: right" type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>
         </div>
@@ -63,6 +63,12 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 
 @endsection
 <style media="screen">
-
+.panelheader{
+  background-color: #3C4254!important;
+  color: white!important;
+}
+.panelall{
+  margin-top: 7rem;
+}
 
 </style>

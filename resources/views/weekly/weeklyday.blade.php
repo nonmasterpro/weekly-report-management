@@ -11,8 +11,9 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endif
 
 <div id="listQ" class="row">
-  <h3>Weekly Report - Week {{$idweek[0]}} <br>{{$user->name}} {{$user->lastname}}
-</h3>
+  <p>Weekly Report - Week {{$idweek[0]}} 
+</p>
+<p class="name">{{$user->name}} {{$user->lastname}}</p>
 
 @if(sizeof($reports)==0)
 
@@ -36,7 +37,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 <tr>
   <td>{{$key+1}}</td>
   <td> {{$report->title}}</td>
-  <td> {{$report->week}}</td>
+  <td> Week {{$report->week}}</td>
   <td>{{$report->Qcoin}}</td>
   <td>{{$report->mentorid}}</td>
   <td>
@@ -50,7 +51,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   </td>
 
   <td>
-  <form class = "" action="{{route('weekly.destroy',$report->id)}}" method="post">
+  <form class = "actionbut" action="{{route('weekly.destroy',$report->id)}}" method="post">
     <input type ="hidden" name="_method" value="delete">
     <input type ="hidden" name="_token" value="{{ csrf_token() }}">
     <a href="{{route('weekly.show',$report->id)}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
@@ -77,6 +78,16 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   float: right;
   margin-right: 50px;
   margin-bottom: 10px;
+}
+.actionbut{
+  margin-bottom: 10px;
+}
+p{
+  font-size: 24px;
+}
+.name{
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 

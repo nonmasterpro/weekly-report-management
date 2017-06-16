@@ -15,7 +15,7 @@
 		
    
       <div id="page-wrapper" >
-      <h1 style="margin-left: 10px;font-family: Mitr;color: #747474">Dashboard</h1>
+      <h1 class="headerr" style="margin-left: 10px;font-family: Mitr;color: #747474">Dashboard</h1>
       <div class="row">
         <div class="col-md-12" style="height: 30%;">
           <div class="container-fluid ">
@@ -172,10 +172,18 @@ p{
 	font-size: 18px;
 
 }
+.table > tbody > tr > td{
+	padding: 12px!important;
+}
 
 .item1{
-	margin-left: 30px!important;
+	/*margin-left: 30px!important;*/
+	font-size: 20px;
+	font-weight: bold;
 
+}
+.headerr{
+	margin: 30px 14px!important; 
 }
 .img{
 	/*position: absolute;

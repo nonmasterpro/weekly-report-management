@@ -13,8 +13,8 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default tttt">
-                <div class="panel-heading">Weekly Report</div>
+            <div class="panel panel-primary panelall">
+                <div class="panel-heading panelheader">Weekly Report</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "POST" action = "{{route('weekly.store')}}">
@@ -54,7 +54,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
                   <p>Remark </p>
                   <input type= "text" class = "form-control" name="Qcoin"  required><br>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button style="float: right" type="submit" class="btn btn-primary">Submit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
             </div>
         </div>
@@ -67,5 +67,12 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 <style>
 .img2{
   /*margin-top: -10px;*/
+}
+.panelheader{
+  background-color: #3C4254!important;
+  color: white!important;
+}
+.panelall{
+  margin-top: 7rem;
 }
 </style>

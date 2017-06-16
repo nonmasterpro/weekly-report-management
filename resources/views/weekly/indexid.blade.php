@@ -11,46 +11,25 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 @endIf
 
 <div id="listQ" class="row">
-  <h3>Weekly Report - {{$user->name}}
-</h3>
+  <p>Weekly Report - {{$user->name}}
+</p>
+<div class="panel">
 <table class="table table-striped">
 <tr>
 <th class="dateCol">#</th>
-{{-- <th class="dateCol" >Date</th> --}}
 <th>Week</th>
-{{-- <th>Remark</th>
-<th>Mentor</th>
-<th>Status</th> --}}
+
 <th class="actionCol">Action</th>
 </tr>
 
-
-{{-- {{dd($weeklys)}} --}}
-
-                                
-
-
-{{-- @foreach($weeklys as $key => $weekly) --}}
 @for ($i = 1; $i <= $user->week; $i++)
 <tr>
   <td>{{$i}}</td>
-  {{-- <td>{{$weekly->title}}</td> --}}
+
   <td>Week {{$i}}</td>
-  {{-- <td>{{$weekly->Qcoin}}</td>
-  <td>{{$weekly->mentorid}}</td>
 
   <td>
-  @if($weekly->status==1)
-  <span id="span1">Pending</span>
-  @elseif($weekly->status==2)
-  <span id="span2">Approve</span>
-  @elseif($weekly->status==3)
-  <span id="span3">Reject</span>
-  @endif
-  </td> --}}
-
-  <td>
-    <form class = "" action="{{URL('weekly/print')}}" method="get">
+    <form class = "actionbut" action="{{URL('weekly/print')}}" method="get">
     <input type ="hidden" name="_method" value="delete">
     <input type ="hidden" name="_token" value="{{ csrf_token() }}">
     <a href="{{URL('weekly/'.$i.'/day')}}" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a>
@@ -64,6 +43,7 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
 {{-- @endforeach --}}
 </table>
 </div>
+</div>
 
 
 @stop
@@ -74,6 +54,20 @@ class="btn btn-info tttt" type="button" name="button"> Back </button>
   float: right;
   margin-right: 50px;
   margin-bottom: 10px;
+}
+
+/*.actionCol:last-child{
+  width: 300!important;
+}*/
+.dateCol:first-chlid{
+  width: 1000px!important;
+}
+.actionbut{
+  margin-bottom: 10px;
+}
+p{
+  font-size: 24px;
+  margin-bottom: 20px!important;
 }
 
 
