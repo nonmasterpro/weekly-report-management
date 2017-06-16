@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default tttt">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading panelheader">Register</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -99,3 +99,10 @@
     </div>
 </div>
 @endsection
+
+<style>
+    .panelheader{
+  background-color: #3C4254!important;
+  color: white!important;
+}
+</style>
